@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>Hexo+Coding搭建个人博客及绑定个人域名 | This is My World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="教程,hexo">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":false,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UO1b","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            d: JSON.parse('{"app_id":"f7ac8962"}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+        <script type="text/javascript" src="/js/plugins/daovoice.js?v=1.3.2"></script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">韓仁輝</h5>
+          <a href="mailto:897691781@qq.com" title="897691781@qq.com" class="mail">
+            
+              <span>8</span>
+            
+              <span>9</span>
+            
+              <span>7</span>
+            
+              <span>6</span>
+            
+              <span>9</span>
+            
+              <span>1</span>
+            
+              <span>7</span>
+            
+              <span>8</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/HanRenHui" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>Hexo+Coding搭建个人博客及绑定个人域名</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">Hexo+Coding搭建个人博客及绑定个人域名</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-11T14:07:11.000Z" itemprop="datePublished" class="page-time">
+  2018-08-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/hexo/">hexo</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-Hexo-Coding搭建个人博客及绑定域名"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo+Coding搭建个人博客及绑定个人域名</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-11 22:07:11" datetime="2018-08-11T14:07:11.000Z"  itemprop="datePublished">2018-08-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/">教程</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/教程/hexo/">hexo</a></li></ul></li></ul>
+
+
+
+            
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/#comment">
+            <span class="valine-comment-count" data-xid="/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>关于这篇教程<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">hexo官方文档</a>上已经说的很详细了，但还是很难仅通过一篇文章就能过一口气完美搭建，中间还是踩到不少雷（一把辛酸泪），所以还是想拿这篇文章来记录下。<br><a id="more"></a></p>
+<hr>
+<h1 id="技术博客的选择"><a href="#技术博客的选择" class="headerlink" title="技术博客的选择"></a>技术博客的选择</h1><p>现在网上很多的教程都是基于<strong>hexo+github</strong>的，包括我之前也是托管在Github Pages上面，但是由于是国外服务器所以访问起来有点慢（其实相当慢，我会瞎说？）于是朝coding投怀送抱，支持下国产。</p>
+<h1 id="安装必要依赖"><a href="#安装必要依赖" class="headerlink" title="安装必要依赖"></a>安装必要依赖</h1><p>这两个环境直接下载安装就行了，应该不会有什么大问题</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
+<li><a href="https://gitforwindows.org/" target="_blank" rel="noopener">Git</a></li>
+</ul>
+<h1 id="Hexo安装"><a href="#Hexo安装" class="headerlink" title="Hexo安装"></a>Hexo安装</h1><p>安装好git以及node.js之后，在电脑的任意盘里新建一个空文件夹，命名随意(比如<code>blog</code>)，最好是纯英文。然后打开这个空文件夹，鼠标右键选择Git Bash。</p>
+<p>输入以下一下命令安装Hexo<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo -g</span><br><span class="line">可能会安装失败（这是我遇到的第一个坑），安装失败选择下边这种方式(淘宝源安装):</span><br><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org`**</span></span><br><span class="line">cnpm install hexo-cli -g</span><br><span class="line">Hexo安装完成之后，输入下面指令初始化Hexo</span><br><span class="line">hexo init</span><br></pre></td></tr></table></figure></p>
+<h1 id="本地运行"><a href="#本地运行" class="headerlink" title="本地运行"></a>本地运行</h1><p>在你刚才新建的空文件夹（blog）下右键选择<code>Git Bash</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean # 清除历史生成的静态文件</span><br><span class="line">hexo generate # 生成静态文件(简写：hexo g)</span><br><span class="line">hexo server # 启动本地服务(简写: hexo s)</span><br></pre></td></tr></table></figure></p>
+<p> 一顿操作猛如虎以后，看到下面这条指令，代表服务开启成功，<em>浏览器中输入以下网站</em>就可以看到刚刚搭建的静态网页。<br> <code>INFO  Start processing</code><br><code>INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop.</code></p>
+<h1 id="Coding-pages-设置"><a href="#Coding-pages-设置" class="headerlink" title="Coding pages 设置"></a>Coding pages 设置</h1><p>现在我们已经在本地搭建好了我们的博客，麻溜儿部署起来让大家看到。</p>
+<p>先打开<a href="https://coding.net/" target="_blank" rel="noopener">coding</a>,右上角注册一下。</p>
+<h2 id="创建一个新仓库"><a href="#创建一个新仓库" class="headerlink" title="创建一个新仓库"></a>创建一个新仓库</h2><figure class="image-box">
+                <a rel=Hexo+Coding搭建个人博客及绑定个人域名 href="0.png" class="swipebox" title=undefined><img src="0.png" alt="[ 创建新仓库 ]" title="" class=""></a>
+                <p>[ 创建新仓库 ]</p>
+            </figure>
+<p><a rel=Hexo+Coding搭建个人博客及绑定个人域名 href="1.png" class="swipebox" title=<img src="1.png" alt="[ 注意仓库名的格式是固定的，用户名+coding.me 不一致会出错 ]">><img src="1.png" alt="[ 注意仓库名的格式是固定的，用户名+coding.me 不一致会出错 ]"></a></p>
+<h2 id="开启静态pages"><a href="#开启静态pages" class="headerlink" title="开启静态pages"></a>开启静态pages</h2><p><a rel=Hexo+Coding搭建个人博客及绑定个人域名 href="2.png" class="swipebox" title=<img src="2.png" alt="[这是开启展示功能 ]">><img src="2.png" alt="[这是开启展示功能 ]"></a></p>
+<h3 id="绑定个人域名，如果不需要可直接跳过这一步，使用用户名-coding-me的方式直接访问"><a href="#绑定个人域名，如果不需要可直接跳过这一步，使用用户名-coding-me的方式直接访问" class="headerlink" title="绑定个人域名，如果不需要可直接跳过这一步，使用用户名+coding.me的方式直接访问"></a>绑定个人域名，如果不需要可直接跳过这一步，使用用户名+coding.me的方式直接访问</h3><figure class="image-box">
+                <a rel=Hexo+Coding搭建个人博客及绑定个人域名 href="3.png" class="swipebox" title=undefined><img src="3.png" alt="[点击设置]" title="" class=""></a>
+                <p>[点击设置]</p>
+            </figure>
+<figure class="image-box">
+                <a rel=Hexo+Coding搭建个人博客及绑定个人域名 href="4.png" class="swipebox" title=undefined><img src="4.png" alt="[将你的个人域名输入 ]" title="" class=""></a>
+                <p>[将你的个人域名输入 ]</p>
+            </figure>
+<blockquote>
+<p>注意个人域名的解析参考 <a href="https://coding.net/help/doc/pages/domain.html" target="_blank" rel="noopener">coding 官方帮助文档</a></p>
+</blockquote>
+<h2 id="添加部署密钥"><a href="#添加部署密钥" class="headerlink" title="添加部署密钥"></a>添加部署密钥</h2><p>打开<code>Git bash</code>，输入<code>ssh-keygen -t rsa -C &quot;897691781@qq.com</code>“,这个邮箱地址换成你的。连续四次回车就生成了一对密钥。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /c/Users/韓仁輝/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /c/Users/韓仁輝/.ssh/id_rsa.pub.</span><br></pre></td></tr></table></figure></p>
+<p>它会告诉你密钥生成在那个文件夹,上面是我的密钥生成路径，下面要相应替换成你的，使用cat来查看公钥内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /c/Users/韓仁輝/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>复制输出的内容，打开<code>coding</code>你刚刚创建的项目，点击页面左侧设置里的部署公钥，点击新建公钥，把你刚刚复制的内容粘贴进去就可以了。</p>
+<h1 id="git部署静态界面"><a href="#git部署静态界面" class="headerlink" title="git部署静态界面"></a>git部署静态界面</h1><p>通过git将你的静态页面push到你刚刚创建的coding pages上去</p>
+<p>还是在<code>blog</code>根目录下，右键<code>Git Bash</code>，输入以下指令安装一个hexo的部署工具<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>安装完成以后，需要配置部署路径，打开blog文件夹下的<code>_config.yml</code>（打开方式别选记事本，编码不支持中文），下滑找到<code>deploy:</code>，将deploy修改为<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repo:  git@git.coding.net:HanRenHui/HanRenHui.coding.me.git #注意将用户名换为你自己的</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>别忘记<code>ctril+s</code>保存一下，还是在<code>blog/</code>目录下，用hexo命令完成最终部署：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br><span class="line"># 2 3可以简写为 hexo g -d</span><br></pre></td></tr></table></figure></p>
+<p>恭喜，打开浏览器在地址栏输入用户名.coding.me（有个人域名直接输入个人域名）就可以访问自己的博客啦!!!</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-12T04:53:39.337Z" itemprop="dateUpdated">2018-08-12 12:53:39</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/" target="_blank" rel="external">http://yoursite.com/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/</a>
+        
+    </div>
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/教程/">教程</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/&title=《Hexo+Coding搭建个人博客及绑定个人域名》 — This is My World&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/&title=《Hexo+Coding搭建个人博客及绑定个人域名》 — This is My World&source=关于这篇教程hexo官方文档上已经说的很详细了，但还是很难仅通过一篇文章就能过一口气完美搭建，中间还是踩到不少雷（一把辛酸泪），所以还是想拿这篇文章来记录下。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/2018/08/04/hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#技术博客的选择"><span class="post-toc-number">1.</span> <span class="post-toc-text">技术博客的选择</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装必要依赖"><span class="post-toc-number">2.</span> <span class="post-toc-text">安装必要依赖</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hexo安装"><span class="post-toc-number">3.</span> <span class="post-toc-text">Hexo安装</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#本地运行"><span class="post-toc-number">4.</span> <span class="post-toc-text">本地运行</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Coding-pages-设置"><span class="post-toc-number">5.</span> <span class="post-toc-text">Coding pages 设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建一个新仓库"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">创建一个新仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开启静态pages"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">开启静态pages</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#绑定个人域名，如果不需要可直接跳过这一步，使用用户名-coding-me的方式直接访问"><span class="post-toc-number">5.2.1.</span> <span class="post-toc-text">绑定个人域名，如果不需要可直接跳过这一步，使用用户名+coding.me的方式直接访问</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加部署密钥"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">添加部署密钥</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#git部署静态界面"><span class="post-toc-number">6.</span> <span class="post-toc-text">git部署静态界面</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/reward-wechat.jpg" data-alipay="/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="https://www.lujingtao.com" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                韓仁輝 &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/&title=《Hexo+Coding搭建个人博客及绑定个人域名》 — This is My World&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/08/11/Hexo-Coding搭建个人博客及绑定域名/&title=《Hexo+Coding搭建个人博客及绑定个人域名》 — This is My World&source=关于这篇教程hexo官方文档上已经说的很详细了，但还是很难仅通过一篇文章就能过一口气完美搭建，中间还是踩到不少雷（一把辛酸泪），所以还是想拿这篇文章来记录下。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3bQW4bMQwFUN//0inQVYvCk/9JqfHizWoQ2zN8WkgEybxe8fX1+/rz/vkv7377/Mz8/vCFh4eHNwr93ZWE+Pzifz9Nnvb8qyRmPDw8vNu8duPOt/LnZUoWtF1uPDw8vM/htVt2slgJO0+v8fDw8D6Nl784WY42ZcfDw8P7NF5SjEgKqXnSnBRnk3iO1Vrw8PDwYt6sAfaz99f7e3h4eHijrnq7+baNrk1ROIoQDw8P7wKvTZfzNHpWSkjiaZ+Gh4eHd5aXt+33RYc80M14wV/3eHh4eBd4N5pSSXDtUMI+3cfDw8O7wWtDacsQq/b/upGGh4eHd4/XJsFtMfeZlyxuXg7Gw8PDu8HLW015gbVtd51a4rf9PTw8PLwLvDZp3mzfSQE3P36+eTIeHh7eZV4OS7b+NuizJeNX/no8PDy8BW+WFm/aUZulvNLTw8PDw1v009uG0wy/GclK8Hh4eHi3efmB0X6al4Bni/LNcYKHh4d3lLcJa7PFt+D28MDDw8P7WV4+LJWkwi141ZDDw8PDu8AbDjONGmNtQWG2uCdmtfDw8PBeB/97KG+MbVpWsyMqWW48PDy8e7w8Ic4T6Hbh8mOgPirw8PDw1rx9w6ktQMyS6bxVVvTW8PDw8Ea8WSF1X3TYHEvDaPHw8PCO8tpNOX/9LPRkmeojAQ8PD+8QbzaW+nyoJMWL2TdrJB4eHt413qxMkPzqVMF3loLj4eHhneV9lVdexj07cDArGePh4eHd4G02303RdpYin40BDw8PbxPD5jCYFTVyfFvsGA5d4eHh4Y147WGQBNS21pJ0PG/g4eHh4X0arx1+yssKsyJyMW6Fh4eH9x95SZs//7RN0GeNOjw8PLx7vE24Z4u/s+bWNyk1Hh4e3lHefm6rTaD3YwHJN/Hw8PAu8H4BAmK7YM8QMbsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "codefine | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/js/plugins/valine.js?v=1.3.2"></script>
+    
+    
+
+
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+  daovoice('init', {
+    app_id: "f7ac8962"
+  });
+  daovoice('update');
+</script>
+
+    
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-120},"mobile":{"show":true,"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"react":{"opacityDefault":0.8,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
