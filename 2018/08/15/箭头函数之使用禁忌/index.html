@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>Tags: 笔记 | This is My World</title>
+    <title>箭头函数之使用禁忌 | This is My World</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="笔记,ES6语法">
     <link rel="shortcut icon" href="/blog/img/favicon.ico">
     <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
     <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
@@ -15,7 +15,7 @@
     <script type="text/javascript">
         // Data Center
         var DC = {
-            reward:	false,
+            reward:	true,
             lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
             v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
             g: JSON.parse('{"enable":true,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
@@ -34,7 +34,7 @@
 <body>
     <div id="loading" class="active"></div>
 
-    <aside id="menu"  >
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -115,7 +115,7 @@
               </a>
             </li>
         
-            <li class=" active">
+            <li class="">
               <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 TAGS
@@ -148,7 +148,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>Tags: 笔记</span>
+            <span>箭头函数之使用禁忌</span>
             
         </div>
         
@@ -158,43 +158,24 @@
         
     </div>
 </header>
-<header class="content-header tags-header">
+<header class="content-header post-header">
     <img src="http://t1.aixinxi.net/o_1ckoipqd51mqd1cko19cfe091280a.jpg-j.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">Tags: 笔记</h1>
+        <h1 class="title">箭头函数之使用禁忌</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2018-08-15T04:45:05.000Z" itemprop="datePublished" class="page-time">
+  2018-08-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/ES6语法/">ES6语法</a></li></ul></li></ul>
+
             
         </h5>
         
     </div>
     
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/blog/tags" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">全部</a>
-        
-            <a href="/blog/tags/Hello-World/" backup-style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">Hello World</a>
-            
-        
-            <a href="/blog/tags/教程/" backup-style="-webkit-order:4;order:4" class="tags-list-item waves-effect waves-button waves-light">教程</a>
-            
-        
-            <a href="/blog/tags/hexo/" backup-style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light">hexo</a>
-            
-        
-            <a href="/blog/tags/笔记/" backup-style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light active">笔记</a>
-            
-        
-            <a href="/blog/tags/ES6语法/" backup-style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">ES6语法</a>
-            
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
-</div>
-
 
 </header>
 
@@ -211,79 +192,194 @@
     <div id="local-search-result"></div>
 </div>
 
-<div class="container body-wrap fade">
-    
-            <div class="waterfall">
-                
-                <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-08-15 12:45:05" datetime="2018-08-15T04:45:05.000Z"  itemprop="datePublished">2018-08-15</time>
 
-      
+<div class="container body-wrap">
+    <article id="post-箭头函数之使用禁忌"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">箭头函数之使用禁忌</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-15 12:45:05" datetime="2018-08-15T04:45:05.000Z"  itemprop="datePublished">2018-08-15</time>
+
+            
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/ES6语法/">ES6语法</a></li></ul></li></ul>
 
 
 
-    </div>
-    
+            
+	<span id="/blog/2018/08/15/箭头函数之使用禁忌/" class="leancloud_visitors" data-flag-title="箭头函数之使用禁忌" title="箭头函数之使用禁忌">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/blog/2018/08/15/箭头函数之使用禁忌/#comment">
+            <span class="valine-comment-count" data-xid="/blog/2018/08/15/箭头函数之使用禁忌/"></span>
+        </a>
+    </span>
 
 
-  
-    <h3 class="post-title " itemprop="name">
-      <a class="post-title-link" href="/blog/2018/08/15/箭头函数之使用禁忌/">箭头函数之使用禁忌</a>
-    </h3>
-  
 
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <p>本文承接上文，记录下ES6中箭头函数的使用禁忌</p>
 
-
-    
-    <div class="post-footer">
+        </div>
         
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-15T04:47:52.150Z" itemprop="dateUpdated">2018-08-15 12:47:52</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/blog/2018/08/15/箭头函数之使用禁忌/" target="_blank" rel="external">https://hanrenhui.coding.me/blog/2018/08/15/箭头函数之使用禁忌/</a>
+        
+    </div>
+    <footer>
+        <a href="https://hanrenhui.coding.me/blog">
+            <img src="/blog/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ES6语法/">ES6语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
 
-    </div>
+            <div class="page-share-wrap">
     
-  </article>
-</div>
-        
-                <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2018-08-14 21:35:24" datetime="2018-08-14T13:35:24.000Z"  itemprop="datePublished">2018-08-14</time>
 
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
       
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/ES6语法/">ES6语法</a></li></ul></li></ul>
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/08/15/箭头函数之使用禁忌/&title=《箭头函数之使用禁忌》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/15/箭头函数之使用禁忌/&title=《箭头函数之使用禁忌》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
 
 
 
-    </div>
-    
-
-
-  
-    <h3 class="post-title " itemprop="name">
-      <a class="post-title-link" href="/blog/2018/08/14/ES6语法之箭头函数/">ES6语法之箭头函数</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/ES6语法/">ES6语法</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
-
-    </div>
-    
-  </article>
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
 </div>
+
+        </div>
         
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/blog/2018/08/14/ES6语法之箭头函数/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ES6语法之箭头函数</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/blog/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/blog/img/reward-wechat.jpg" data-alipay="/blog/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
             </div>
+        </label>
         
-    
+    </div>
 </div>
 
+    
+</div>
 
         <footer class="footer">
     
@@ -345,7 +441,7 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/tags/笔记/&title=This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/08/15/箭头函数之使用禁忌/&title=《箭头函数之使用禁忌》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -357,7 +453,7 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/tags/笔记/&title=This is My World&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/15/箭头函数之使用禁忌/&title=《箭头函数之使用禁忌》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -369,7 +465,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3ay26DQAwF0P7/T6fbSC3JtT2JxMxhVSEgHBauXz8/8fF4Oq7O/z2er0meefUryw4MDIzbMvJXya9JzvTOX1IxMDAOYFxFsKtrqq/7Opj2gjUGBgbG1eOSNHF+BgMDA2MtIyk785IVAwMDY1LETlLDhPT6yctqcQwMjBsy8q779//+yHwDAwPjVoxH8chHkvlgstqq++dXMDAwtmb0StAkOUuSv0nAxcDAOIdRbdn3AujaBlyUt2JgYGzKyM/3Cs5qkC20/DAwMA5gJEleMh6YB9z8g44ehIGBcUNGcj4pYqtrZEmrbtm2CAYGxs0ZvUZYMjZY+zlG1TAGBsbNGUm6lq98VRPBBYkpBgbG1owkOctDZN4yqwboQgGMgYGxNaPX6soXyOZJYS/QY2Bg3J0xWXSorpyuTR8xMDDOYfSa8r1l01Ujz8u7MDAwNmXMF7N6XfqkNG3msBgYGNsxJk2x6pgzJzVHBRgYGFszelHr02G0isfAwNibMS8s56PKckh93TvEwMDYlJGPDJMAmowc5v8lMDAwTmZM9jVyZLWh9uYuDAyMTRmP4vGJkWSvSH4zg8XAwNiI0Qt2vVfP18WqnwwDA+MExjeDbHLXaHMEAwNja0avQZ+ndIUWf+ttMTAwMPK11GrbrteSi5YtMDAwDmb0QmdeAL8uVi8/AQYGxgGMpIitwvI0sZpQYmBgnMYYlY5x6Kx+rOSTYWBgHMD4BeYFDcv5JdSEAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqklEQVR42u3awXKsMAwEwPz/TydV7/ZqwzKSLLKH5kQRFtwcbGekr6/4+P53XJ2/Hq+/TY7X+6+uHD7w8PDwWkNPXnl1//tBTD7B+0+c/AoPDw9vj5csBu/B+bSeT/TJG28seHh4eH/Kqy4MyeQ+GQMeHh7e5/MmW+08JaguEnh4eHh/xatGq3lqOo+GH8pa8PDw8GLevAD2/Pmj9T08PDy8VlG/ty3ON9mThoPLMeDh4eEt8PKXVWPZXjEsaSzII2M8PDy8DV613aoXN+RNBtUl5+YteHh4eA/y8qHkge+kjSCPIaL/GPDw8PAGvLxdoNpYkEcS+dIyj07w8PDw5rzJNjpZJHpb7WNLBR4eHt4CL3/0fNM8+bg9BR4eHt42rzqt5yHF/J7qooKHh4e3x8vjgMnkPgl2R2A8PDy8x3m9Hq4EmVyvkn65Ew8PD2+Blxe0qqFAdTNdDTXKwS4eHh7eAq+6ga6W+XsR7aTtAA8PD2+Pl0/ceYNpvvwkscJoIcHDw8M7ypsUvfK/Vu+ptltd4vHw8PCWefNJvzfQvGyWbNb/u46Hh4e3xquW7fNB90KEPMi4uRMPDw9vgbfdIpAX+/PPUW4Uw8PDwzvK+w6OfIj5gKqfr9k0gIeHh7fG65X/c2Q1ROgFGXh4eHjP894vCb12qOrQq61aN9fx8PDwFninClF5Gaz6sfKWrEswHh4e3lFedcqenOfIya+irAUPDw9vgTcJI/IC/3yzjoeHh/c8Lz96g+5FwHmDQl5Ow8PDwzvLm4eteVSRNChUP+jNM/Hw8PDWeL3KezWMyNsOqusYHh4e3mfymnFqPK1XnxZt7vHw8PA+jFcNfHuhcBLdriwMeHh4eOMwYtKedSpRLgcceHh4eAu83kMn5fxe+X8EwMPDwzvD+wG2SdpPohpkugAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -396,6 +492,76 @@
 } )( jQuery );
 </script>
 
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
 
 
 

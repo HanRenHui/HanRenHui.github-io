@@ -238,7 +238,7 @@
 <p><strong>看一下书上的解决方案</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"My obj"</span>,</span><br><span class="line">     getNameFunc :<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">         <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">             <span class="keyword">return</span> that.name</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.getNameFunc()()); <span class="comment">// My obj,</span></span><br></pre></td></tr></table></figure></p>
 <p>通过缓存this，就可以拿到期待的结果。但是这样确实有点麻烦，箭头函数便可以很好的解决这个问题；<br>看下面栗子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">"The Window"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    name: <span class="string">"My obj"</span>,</span><br><span class="line">     getNameFunc :<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">             <span class="keyword">return</span> <span class="keyword">this</span>.name;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.getNameFunc()()); <span class="comment">// My obj,</span></span><br></pre></td></tr></table></figure></p>
 <p>用箭头函数为什么可以解决呢？其实箭头函数内部是不绑定this的，也就是说它<strong>根本没有自己的this</strong>，它内部的this就是外层代码块的this；</p>
-<p>#箭头函数使用禁忌</p>
+<p>今天先写到这—–</p>
 
         </div>
         
@@ -246,7 +246,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-15T04:42:08.254Z" itemprop="dateUpdated">2018-08-15 12:42:08</time>
+    最后更新时间：<time datetime="2018-08-15T04:51:05.497Z" itemprop="dateUpdated">2018-08-15 12:51:05</time>
 </span><br>
 
 
@@ -317,7 +317,14 @@
         
     </div>
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="prev">
+      <a href="/blog/2018/08/15/箭头函数之使用禁忌/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">箭头函数之使用禁忌</h4>
+      </a>
+    </div>
   
 
   
