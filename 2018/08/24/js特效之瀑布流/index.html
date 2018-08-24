@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title> js特效之瀑布流 | This is My World | 前端爱好者 热爱技术&amp;设计</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="笔记,javascript,特效">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":false,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            d: JSON.parse('{"app_id":"f7ac8962"}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+        <script type="text/javascript" src="/blog/js/plugins/daovoice.js?v=1.3.2"></script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="http://t1.aixinxi.net/o_1ckoiuh651pcjji15jtudj1n8pa.jpg-j.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">韓仁輝</h5>
+          <a href="mailto:897691781@qq.com" title="897691781@qq.com" class="mail">
+            
+              <span>8</span>
+            
+              <span>9</span>
+            
+              <span>7</span>
+            
+              <span>6</span>
+            
+              <span>9</span>
+            
+              <span>1</span>
+            
+              <span>7</span>
+            
+              <span>8</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/HanRenHui" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span> js特效之瀑布流</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="http://t1.aixinxi.net/o_1ckoipqd51mqd1cko19cfe091280a.jpg-j.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title"> js特效之瀑布流</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-08-24T09:53:58.000Z" itemprop="datePublished" class="page-time">
+  2018-08-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/javascript/">javascript</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/javascript/特效/">特效</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-js特效之瀑布流"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title"> js特效之瀑布流</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-08-24 17:53:58" datetime="2018-08-24T09:53:58.000Z"  itemprop="datePublished">2018-08-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/javascript/">javascript</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/javascript/特效/">特效</a></li></ul></li></ul></li></ul>
+
+
+
+            
+	<span id="/blog/2018/08/24/js特效之瀑布流/" class="leancloud_visitors" data-flag-title=" js特效之瀑布流" title=" js特效之瀑布流">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/blog/2018/08/24/js特效之瀑布流/#comment">
+            <span class="valine-comment-count" data-xid="/blog/2018/08/24/js特效之瀑布流/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>js中的特效部分真的挺有意思，不需要篇幅过长的代码就可以写出一个小玩意儿来获得内心得一点点成就感，而且还可以加入一些自己的想法和设计，这篇文章记录下我封装的实现瀑布流的方法</p>
+<h1 id="何为瀑布流"><a href="#何为瀑布流" class="headerlink" title="何为瀑布流"></a>何为瀑布流</h1><p>说白了就是一堆照片的排列，但这些照片的排列是有一定规则的，语言表达能力差，show you the picture:</p>
+<figure class="image-box">
+                <a rel= js特效之瀑布流 href="1.png" class="swipebox" title=undefined><img src="1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>so,can you see that? 我都看出特点了，各位一定也能看出来，我们总结一下这些图片的<code>规律</code>：</p>
+<ul>
+<li><strong>宽度相同</strong></li>
+<li><strong>高度不同</strong></li>
+<li><strong>排列特别整齐</strong></li>
+</ul>
+<h1 id="实现逻辑"><a href="#实现逻辑" class="headerlink" title="实现逻辑"></a>实现逻辑</h1><p>瀑布流效果的实现逻辑非常简单，我大致给它分为如下几点：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">先准备二十张高度不相同，宽度相同（可以自己设置）的照片（废话！）；</span><br><span class="line">首先我们先准备一个父元素box，给它设置宽度高度然后将其居中，我们的所有照片就在这个box中乖乖排列</span><br><span class="line">第一步： 计算一行放多少张照片</span><br><span class="line">第二步： 遍历所有照片，把第一行照片的高度存入一个数组当中</span><br><span class="line">第三步： 求出第一行照片的最低高度，把第二行的第一张照片放它屁股后面</span><br><span class="line">第四步： 更改数组中刚才求出的最低高度的数据为：最低高度+第二行第一张照片的高度</span><br></pre></td></tr></table></figure></p>
+<p>下面<code>show the code</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">ow.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//这是外层容器</span></span><br><span class="line">        <span class="keyword">let</span> bigbox = <span class="built_in">document</span>.querySelector(<span class="string">".box"</span>);</span><br><span class="line">        <span class="comment">//这是所有图片</span></span><br><span class="line">        <span class="keyword">let</span> smallbox = <span class="built_in">document</span>.querySelectorAll(<span class="string">".sbox"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">const</span> findindex = <span class="function">(<span class="params">arr,min</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(arr[i] === min)&#123;</span><br><span class="line">                    <span class="keyword">return</span> i;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">const</span> waterfull = <span class="function">(<span class="params">parent,child</span>) =&gt;</span> &#123;</span><br><span class="line">    </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;smallbox.length;i++)&#123;</span><br><span class="line">                 <span class="keyword">let</span> bwidth = bigbox.offsetWidth;</span><br><span class="line">                 <span class="keyword">let</span> swidth = smallbox[<span class="number">0</span>].offsetWidth;</span><br><span class="line">                <span class="comment">//这是第一步</span></span><br><span class="line">                <span class="keyword">let</span> column = <span class="built_in">parseInt</span>(bwidth/swidth);</span><br><span class="line">                <span class="keyword">let</span> margin = <span class="number">10</span>;</span><br><span class="line">                <span class="keyword">let</span> minArr= [];</span><br><span class="line">                <span class="keyword">let</span> sheight = smallbox[i].offsetHeight + margin;</span><br><span class="line">                <span class="keyword">if</span>(i&lt;column)&#123;</span><br><span class="line">                    <span class="comment">//这是第二步</span></span><br><span class="line">                    minArr.push(sheight);</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    smallbox[i].style.position = <span class="string">"absolute"</span>;</span><br><span class="line">                    <span class="comment">//这是第三步</span></span><br><span class="line">                    <span class="keyword">let</span> minHeight = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>,minArr);</span><br><span class="line">                    <span class="comment">//找出最小值的索引</span></span><br><span class="line">                    <span class="keyword">let</span> minindex = findindex(minArr,minHeight);</span><br><span class="line">                    smallbox[i].style.left = minindex * (swidth+margin) + <span class="string">'px'</span>;</span><br><span class="line">                    smallbox[i].style.top = minHeight + <span class="string">'px'</span>;</span><br><span class="line">                    <span class="comment">//这是第四步</span></span><br><span class="line">                    minArr[minindex]+= sheight;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        waterfull(bigbox,smallbox);</span><br></pre></td></tr></table></figure>
+<p>OK搞定，下次遇到使用瀑布流的地方只要调用<code>waterfull()</code>函数，把图片的外层容器，和装着所有图片的数组传进去即可！</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-24T10:35:56.101Z" itemprop="dateUpdated">2018-08-24 18:35:56</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/blog/2018/08/24/js特效之瀑布流/" target="_blank" rel="external">https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/</a>
+        
+    </div>
+    <footer>
+        <a href="https://hanrenhui.coding.me/blog">
+            <img src="/blog/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/特效/">特效</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《 js特效之瀑布流》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js中的原型链，prototype和和_proto_的关系</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#何为瀑布流"><span class="post-toc-number">2.</span> <span class="post-toc-text">何为瀑布流</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#实现逻辑"><span class="post-toc-number">3.</span> <span class="post-toc-text">实现逻辑</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/blog/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/blog/img/reward-wechat.jpg" data-alipay="/blog/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                韓仁輝 &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《 js特效之瀑布流》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACqUlEQVR42u3aQW7DMAwEwPz/0+0DDNe7opQExfgUFI6sUQCTJfl6xddPcF3vn3y+rnx9yrYLDw8Pb+vWr/fk4LsNJau1R3D7RDw8PLxjvLtNJPfk28qp7T23f8fDw8P7Al6ylTzXzb+Fh4eH9z94dy/uJGysfQsPDw/ve3hJMaI9jklxoS1ebKi14OHh4XWV1cX091Ofj/T38PDw8DYNBCTNsPwpk+JsvVs8PDy8A7y2hDpJefPA0+IfjhIPDw9vKy8pobYPztecD2k9HBYeHh7eYd4Elq+zFoQWV8PDw8M7wMtfsm2RIml0TcoW+U+Ch4eHt5eXhIH8Tdsmx1Fa/Gea/vDz4OHh4b2FlyfWk+ZWO4a1OHqFh4eHd4zXvnzXRgr2FjiicIWHh4f3Fl67dF44yMezJiNZRQMMDw8Pb8BrX/Fta79tYuX3Pxw6Hh4e3gHe/AGTkkQSYNqxBjw8PLzTvDwkrCW7ydbb5y42wPDw8PA28drAsNboyhP0aEasDTx4eHh4h3ltYKibUgN2uzIeHh7ead7aNS8ftAXfulGHh4eHt5U3aVPNy7iTAsco4uHh4eENeG1hN99uPrA1SazrdfDw8PA28aLRpa1t/vaaBC08PDy8E7y15n3bwl9rqrVjB6PwgIeHhxfz2oZWEjDaFPzvVL6dBFicR8DDw8MreRN8HjDa8JOHEzw8PLxP8drhgDa9bgsKOePhfwU8PDy8Tby1Eav2nr3v7eLo8fDw8A7w1lpQu5LjtQJH/hkPDw/vHC9/0a8dSj6OkBd2i7CBh4eHd4y39lLOSZPCbpuUv/ITxcPDw3sL71xgmKyMh4eH9828vODblmvXvvtQMsbDw8M7xmsbWvlAaj4Cmxca6sCAh4eHt5W34R/+Te20T+0HDw8PL97PLxLxK/CQSFPlAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/blog/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/blog/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/blog/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/valine.js?v=1.3.2"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/leancloud_visitors.js?v=1.3.2"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+  daovoice('init', {
+    app_id: "f7ac8962"
+  });
+  daovoice('update');
+</script>
+
+    
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-120},"mobile":{"show":true,"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"react":{"opacityDefault":0.8,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
