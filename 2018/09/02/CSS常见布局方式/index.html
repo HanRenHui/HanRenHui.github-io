@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>CSS常见布局方式(一) | This is My World | If I Can Turn Back Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="笔记,CSS">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":false,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            d: JSON.parse('{"app_id":"f7ac8962"}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+        <script type="text/javascript" src="/blog/js/plugins/daovoice.js?v=1.3.2"></script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/blog/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">韓仁輝</h5>
+          <a href="mailto:897691781@qq.com" title="897691781@qq.com" class="mail">
+            
+              <span>8</span>
+            
+              <span>9</span>
+            
+              <span>7</span>
+            
+              <span>6</span>
+            
+              <span>9</span>
+            
+              <span>1</span>
+            
+              <span>7</span>
+            
+              <span>8</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/HanRenHui" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>CSS常见布局方式(一)</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/blog/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">CSS常见布局方式(一)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-02T11:29:19.000Z" itemprop="datePublished" class="page-time">
+  2018-09-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/CSS/">CSS</a></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-CSS常见布局方式"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">CSS常见布局方式(一)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-02 19:29:19" datetime="2018-09-02T11:29:19.000Z"  itemprop="datePublished">2018-09-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/CSS/">CSS</a></li></ul></li></ul>
+
+
+
+            
+	<span id="/blog/2018/09/02/CSS常见布局方式/" class="leancloud_visitors" data-flag-title="CSS常见布局方式(一)" title="CSS常见布局方式(一)">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/blog/2018/09/02/CSS常见布局方式/#comment">
+            <span class="valine-comment-count" data-xid="/blog/2018/09/02/CSS常见布局方式/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h1 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h1><p>布局的传统解决方案，基于盒状模型，依赖 <code>display</code>属性 + <code>position</code>属性 + <code>float</code>属性。它对于那些特殊布局非常不方便，比如，垂直居中就不容易实现。于是W3C提出了一种新的方案—-Flex布局，可以简便、完整、响应式地实现各种页面布局。目前，它已经得到了所有浏览器的支持，这意味着，现在就能很安全地使用这项功能。<br><a id="more"></a></p>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="1.png" class="swipebox" title=undefined><img src="1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<h2 id="什么是flex布局"><a href="#什么是flex布局" class="headerlink" title="什么是flex布局"></a>什么是flex布局</h2><p>Flex 是 Flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。flex 是一种新型的布局方式，使用该布局方式可以实现几乎所有你想要的效果。</p>
+<h2 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h2><p>flex的使用方法很简单，只需要将其 display 属性设置为 flex 就可以，也可以设置行内的 flex。<strong>注意，设为 Flex 布局以后，子元素的 float、clear 和 vertical-align 属性将失效。</strong></p>
+<h2 id="碎碎的概念"><a href="#碎碎的概念" class="headerlink" title="碎碎的概念"></a>碎碎的概念</h2><p>采用Flex布局的元素，称为Flex容器（flex container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="2.png" class="swipebox" title=undefined><img src="2.png" alt="[]" title="" class=""></a>
+                <p>[]</p>
+            </figure>
+<blockquote>
+<p>容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交&gt;叉轴的开始位置叫做cross start，结束位置叫做cross end。<br>项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
+</blockquote>
+<h2 id="父容器属性"><a href="#父容器属性" class="headerlink" title="父容器属性"></a>父容器属性</h2><p>父容器上有六个属性：</p>
+<ul>
+<li>flex-direction：主轴的方向（默认水平）。</li>
+<li>flex-wrap：超出父容器子容器的排列样式。</li>
+<li>flex-flow：flex-direction 属性和 flex-wrap 属性的简写形式。</li>
+<li>justify-content：子容器在主轴的排列方向。</li>
+<li>align-items：子容器在交叉轴的排列方向。</li>
+<li>align-content：多根轴线的对齐方式。</li>
+</ul>
+<h3 id="flex-direction-属性"><a href="#flex-direction-属性" class="headerlink" title="flex-direction 属性"></a>flex-direction 属性</h3><p>这个属性是用来设置主轴的方向的，默认是水平方向，也可以用来设置其他方向，show you the code：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    flex-direction: row;                <span class="comment">// 默认值，主轴为水平方向，起点在左端。</span></span><br><span class="line">    flex-direction: row-reverse;        <span class="comment">// 主轴为水平方向，起点在右端。</span></span><br><span class="line">    flex-direction: column;             <span class="comment">// 主轴为垂直方向，起点在上。</span></span><br><span class="line">    flex-direction: column-reverse;     <span class="comment">// 主轴为垂直方向，起点在下。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="3.png" class="swipebox" title=undefined><img src="3.png" alt="[]" title="" class=""></a>
+                <p>[]</p>
+            </figure>
+<h3 id="flex-wrap"><a href="#flex-wrap" class="headerlink" title="flex-wrap"></a>flex-wrap</h3><p><code>flex-wrap</code> 属性决定子容器如果在一条轴线排不下时，如何换行。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    flex-wrap: nowrap;          <span class="comment">// 默认，不换行</span></span><br><span class="line">    flex-wrap: wrap;            <span class="comment">// 换行，第一行在上方。</span></span><br><span class="line">    flex-wrap: wrap-reverse     <span class="comment">// 换行，第一行在下方。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="4.png" class="swipebox" title=undefined><img src="4.png" alt="[flex-wrap:nowrap(子盒子宽度被挤压)]" title="" class=""></a>
+                <p>[flex-wrap:nowrap(子盒子宽度被挤压)]</p>
+            </figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="5.png" class="swipebox" title=undefined><img src="5.png" alt="[flex-warp:warp]" title="" class=""></a>
+                <p>[flex-warp:warp]</p>
+            </figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="6.png" class="swipebox" title=undefined><img src="6.png" alt="[flex-warp:warp-reverse]" title="" class=""></a>
+                <p>[flex-warp:warp-reverse]</p>
+            </figure>
+<h3 id="flex-flow"><a href="#flex-flow" class="headerlink" title="flex-flow"></a>flex-flow</h3><p><code>flex-flow</code> 属性是 flex-direction 属性和 flex-wrap 属性的简写形式，默认值为 row nowrap。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">  flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="justify-content"><a href="#justify-content" class="headerlink" title="justify-content"></a>justify-content</h3><p><code>justify-content</code> 属性定义了子容器在主轴上的对齐方式。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    justify-content: flex-start;      <span class="comment">// 默认，左对齐</span></span><br><span class="line">    justify-content: flex-end;        <span class="comment">// 右对齐</span></span><br><span class="line">    justify-content: center;          <span class="comment">// 居中</span></span><br><span class="line">    justify-content: space-between;   <span class="comment">// 两端对齐，项目之间的间隔都相等。</span></span><br><span class="line">    justify-content: space-around;    <span class="comment">// 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p> <a rel=CSS常见布局方式(一) href="7.png" class="swipebox" title=<img src="7.png" alt="">><img src="7.png" alt=""></a></p>
+<h3 id="align-items"><a href="#align-items" class="headerlink" title="align-items"></a>align-items</h3><p><code>align-items</code>属性定义子容器在交叉轴上如何对齐。老规矩，show you the code;<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    align-items: flex-start;    <span class="comment">// 交叉轴的起点对齐。</span></span><br><span class="line">    align-items: flex-end;      <span class="comment">// 交叉轴的终点对齐。</span></span><br><span class="line">    align-items: center;        <span class="comment">// 交叉轴的中点对齐。</span></span><br><span class="line">    align-items: baseline;      <span class="comment">// 项目的第一行文字的基线对齐。</span></span><br><span class="line">    align-items: stretch;       <span class="comment">// 默认，如果项目未设置高度或设为auto，将占满整个容器的高度。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="8.png" class="swipebox" title=undefined><img src="8.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<h3 id="align-content"><a href="#align-content" class="headerlink" title="align-content"></a>align-content</h3><p><code>align-content</code> 属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    align-content: flex-start;   <span class="comment">// 与交叉轴的起点对齐</span></span><br><span class="line">    align-content; flex-end;     <span class="comment">// 与交叉轴的终点对齐。</span></span><br><span class="line">    align-content: center;       <span class="comment">// 与交叉轴的中点对齐。</span></span><br><span class="line">    align-content: space-between;<span class="comment">// 与交叉轴两端对齐，轴线之间的间隔平均分布。</span></span><br><span class="line">    align-content: space-around; <span class="comment">// 每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。</span></span><br><span class="line">    align-content: stretch;     <span class="comment">// 默认 轴线占满整个交叉轴。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="9.png" class="swipebox" title=undefined><img src="9.png" alt="[此图出自菜鸟教程]" title="" class=""></a>
+                <p>[此图出自菜鸟教程]</p>
+            </figure>
+<h2 id="子容器属性"><a href="#子容器属性" class="headerlink" title="子容器属性"></a>子容器属性</h2><p>子容器也有 6 个属性：</p>
+<ul>
+<li>order：子容器的排列顺序</li>
+<li>flex-grow：子容器剩余空间的拉伸比例</li>
+<li>flex-shrink：子容器超出空间的压缩比例</li>
+<li>flex-basis：子容器在不伸缩情况下的原始尺寸</li>
+<li>flex：子元素的 flex 属性是 flex-grow,flex-shrink 和  flex-basis 的简写</li>
+<li>align-self 允许单个项目有与其他项目不一样的对齐方式</li>
+</ul>
+<h3 id="order"><a href="#order" class="headerlink" title="order"></a>order</h3><p><code>order</code> 属性定义项目的排列顺序。数值越小，排列越靠前，默认为 0。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">   order: num; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="10.png" class="swipebox" title=undefined><img src="10.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<h3 id="flex-grow"><a href="#flex-grow" class="headerlink" title="flex-grow"></a>flex-grow</h3><p><code>flex-grow</code> 属性定义子容器的伸缩比例。按照该比例给子容器分配空间。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    flex-grow: num; <span class="comment">//默认为零</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="11.png" class="swipebox" title=undefined><img src="11.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="12.png" class="swipebox" title=undefined><img src="12.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<h3 id="flex-shrink"><a href="#flex-shrink" class="headerlink" title="flex-shrink"></a>flex-shrink</h3><p><code>flex-shrink</code>属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box &#123;</span><br><span class="line">    flex-shrink: num; <span class="comment">// default 1 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="13.png" class="swipebox" title=undefined><img src="13.png" alt="[不设置的情况下]" title="" class=""></a>
+                <p>[不设置的情况下]</p>
+            </figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="14.png" class="swipebox" title=undefined><img src="14.png" alt="[把第二个子盒子的flex-shrink设置为0]" title="" class=""></a>
+                <p>[把第二个子盒子的flex-shrink设置为0]</p>
+            </figure>
+<h3 id="flex-basis"><a href="#flex-basis" class="headerlink" title="flex-basis"></a>flex-basis</h3><p><code>flex-basis</code>属性定义了子容器在不伸缩情况下的原始尺寸，主轴为横向时代表宽度，主轴为纵向时代表高度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    flex-basis: &lt;length&gt; | auto; /* default auto */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel=CSS常见布局方式(一) href="15.png" class="swipebox" title=undefined><img src="15.png" alt="[]" title="" class=""></a>
+                <p>[]</p>
+            </figure>
+<h3 id="flex"><a href="#flex" class="headerlink" title="flex"></a>flex</h3><p>子元素的 <code>flex</code> 属性是 <code>flex-grow</code>,<code>flex-shrink</code> 和 <code>flex-basis</code> 的简写，默认值为 0 1 auto。后两个属性可选。</p>
+<p>该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。</p>
+<h3 id="align-self"><a href="#align-self" class="headerlink" title="align-self"></a>align-self</h3><p>子容器的<code>align-self</code>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖父容器 <code>align-items</code>属性。默认值为 auto，表示继承父元素的 align-items属性，如果没有父元素，则等同于 stretch。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box&#123;</span><br><span class="line">    align-self: auto;             <span class="comment">// 继承父元素的 align-items 属性</span></span><br><span class="line">    align-self: flex-start;       <span class="comment">// 交叉轴的起点对齐。</span></span><br><span class="line">    align-self: flex-end;         <span class="comment">// 交叉轴的终点对齐。</span></span><br><span class="line">    align-self: center;           <span class="comment">// 交叉轴的中点对齐。</span></span><br><span class="line">    align-self: baseline;         <span class="comment">// 项目的第一行文字的基线对齐。</span></span><br><span class="line">    align-self: stretch;          <span class="comment">// 默认，如果项目未设置高度或设为auto，将占满整个容器的高度。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-03T01:34:05.599Z" itemprop="dateUpdated">2018-09-03 09:34:05</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/blog/2018/09/02/CSS常见布局方式/" target="_blank" rel="external">https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/</a>
+        
+    </div>
+    <footer>
+        <a href="https://hanrenhui.coding.me/blog">
+            <img src="/blog/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/&title=《CSS常见布局方式(一)》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/&title=《CSS常见布局方式(一)》 — This is My World&source=flex布局布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS常见布局方式(一)》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/blog/2018/08/24/js特效之瀑布流/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title"> js特效之瀑布流</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#flex布局"><span class="post-toc-number">1.</span> <span class="post-toc-text">flex布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是flex布局"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是flex布局</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#碎碎的概念"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">碎碎的概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#父容器属性"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">父容器属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-direction-属性"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">flex-direction 属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-wrap"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">flex-wrap</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-flow"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">flex-flow</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#justify-content"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">justify-content</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#align-items"><span class="post-toc-number">1.4.5.</span> <span class="post-toc-text">align-items</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#align-content"><span class="post-toc-number">1.4.6.</span> <span class="post-toc-text">align-content</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#子容器属性"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">子容器属性</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#order"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">order</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-grow"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">flex-grow</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-shrink"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">flex-shrink</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex-basis"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">flex-basis</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#flex"><span class="post-toc-number">1.5.5.</span> <span class="post-toc-text">flex</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#align-self"><span class="post-toc-number">1.5.6.</span> <span class="post-toc-text">align-self</span></a></li></ol></li></ol></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/blog/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/blog/img/reward-wechat.jpg" data-alipay="/blog/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                韓仁輝 &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/&title=《CSS常见布局方式(一)》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/&title=《CSS常见布局方式(一)》 — This is My World&source=flex布局布局的传统解决方案，基于盒状模型，依赖 display属性 + position属性 + float属性。它对于那些特殊布局非常不方便，比如，..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《CSS常见布局方式(一)》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2018/09/02/CSS常见布局方式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3ay2oDMQwF0P7/T6fQVaFk5urhJIXjVUmGiY8Xlirp6ytej5+VfPJ79d6Q72Ft4eHh4bW2/mz9feYak7/heifXvGTPeHh4eKd5yeuutzKJS8nbkt/Cw8PD+zTezRUcJ9y9xB0PDw/v//KS1Ll6KNef50EIDw8P75W8pBhRPZRqsOkVR9ZqLXh4eHgxr9oA+4S/D/b38PDw8AZd9WpLrJoE582w5j7x8PDwDvDyNLf3ZHV0IIcVmnB4eHh4B3h5O39SREjKuEk5OPkWDw8P7zW8eWu/93ySdufPPN0PHh4e3hKvmhbnhd0kJMzffIPEw8PDO8Db2vQ8UU4KCr2wgYeHh3eCV01ze6NRkzQ63+dNAwwPDw9vzGvWd+NCan40VV70i3h4eHgHePklm1/T81JveQig978CHh4eXos3v5rz46he8b00Okqp8fDw8Aa8vMSQfzs5iORQqo06PDw8vF1e/jPzTeyOHUSlDTw8PLzDvHy7k7LF7sDBDRIPDw/vAK93lU/S62p4WCgc4+Hh4R3gzdtXrykurBVw8fDw8Aa8QmLamkqosqvFkcI0BB4eHt4qLyklJM2weWm4l1g/fR4PDw/vAK/X8s+HpXrDVXnYKPyvgIeHh7fES1LVrUZ+fhzVMNMsRuDh4eG1eFvDUr1Pqs2z8tAAHh4e3gFePgLVS4urw1i9I4hmIvDw8PCWeL3G2LyE0Uuje004PDw8vF3eo7gm41PVq7zXcsPDw8M7zctXdQggf2ev/IGHh4f3Xl4SDB7jlSfrk9ZaYbIMDw8Pb8yrlmV7gWFhCKAaYPDw8PA+hpeXa5P8tjcoUBggwMPDw3sTLy9MJPjeqEE5LOHh4eEd41WLEXmjKy9q7CbleHh4eOd4vQZYMhCQP1MNLXk4wcPDw1vlfQOmMJKXk/oNTwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/blog/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/blog/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/blog/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/valine.js?v=1.3.2"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/leancloud_visitors.js?v=1.3.2"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+  daovoice('init', {
+    app_id: "f7ac8962"
+  });
+  daovoice('update');
+</script>
+
+    
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-120},"mobile":{"show":true,"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"react":{"opacityDefault":0.8,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
