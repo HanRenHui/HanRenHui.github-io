@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>浮动-塌陷问题 | This is My World | If I Can Turn Back Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="笔记,CSS,浮动">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	true,
+            lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":true,"lazy":false,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            d: JSON.parse('{"app_id":"f7ac8962"}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+        <script type="text/javascript" src="/blog/js/plugins/daovoice.js?v=1.3.2"></script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/blog/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">韓仁輝</h5>
+          <a href="mailto:897691781@qq.com" title="897691781@qq.com" class="mail">
+            
+              <span>8</span>
+            
+              <span>9</span>
+            
+              <span>7</span>
+            
+              <span>6</span>
+            
+              <span>9</span>
+            
+              <span>1</span>
+            
+              <span>7</span>
+            
+              <span>8</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/HanRenHui" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>浮动-塌陷问题</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/blog/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">浮动-塌陷问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-09-24T02:26:26.000Z" itemprop="datePublished" class="page-time">
+  2018-09-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/CSS/">CSS</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/CSS/浮动/">浮动</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-浮动-塌陷问题"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">浮动-塌陷问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-09-24 10:26:26" datetime="2018-09-24T02:26:26.000Z"  itemprop="datePublished">2018-09-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/CSS/">CSS</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/CSS/浮动/">浮动</a></li></ul></li></ul></li></ul>
+
+
+
+            
+	<span id="/blog/2018/09/24/浮动-塌陷问题/" class="leancloud_visitors" data-flag-title="浮动-塌陷问题" title="浮动-塌陷问题">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/blog/2018/09/24/浮动-塌陷问题/#comment">
+            <span class="valine-comment-count" data-xid="/blog/2018/09/24/浮动-塌陷问题/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h1 id="一点废话"><a href="#一点废话" class="headerlink" title="一点废话"></a>一点废话</h1><p>昨晚学习了解决浮动带来的父元素高度塌陷的问题，解决方法还挺多，就在这记录一下加深下印象，也方便后边的查阅；老规矩，废话不多说，直奔主题;</p>
+<h1 id="什么是高度塌陷"><a href="#什么是高度塌陷" class="headerlink" title="什么是高度塌陷"></a>什么是高度塌陷</h1><p>大家都知道块级元素的高度会由子元素撑起来，但是子元素一旦浮动以后，块级元素的高度就没有了，就像下图这样：</p>
+<figure class="image-box">
+                <a rel=浮动-塌陷问题 href="未浮动.png" class="swipebox" title=undefined><img src="未浮动.png" alt="[未浮动]" title="" class=""></a>
+                <p>[未浮动]</p>
+            </figure>
+<figure class="image-box">
+                <a rel=浮动-塌陷问题 href="浮动.png" class="swipebox" title=undefined><img src="浮动.png" alt="[浮动以后]" title="" class=""></a>
+                <p>[浮动以后]</p>
+            </figure>
+<p>其实最简单的解决方式就是给<strong>块级元素一个高度</strong>，让它不依赖子元素的高度，但是在实际应用当中，我们很少会给父元素高度，因为子元素的内容是从后台取出来的，有多少内容你也不知道，自然不能给明确的高度；那怎么搞? 不急往下看；</p>
+<h1 id="方式一-开启父元素BFC"><a href="#方式一-开启父元素BFC" class="headerlink" title="方式一:开启父元素BFC"></a>方式一:开启父元素BFC</h1><p>至于BFC的一些具体概念，在这不做阐述，有兴趣可以自行查阅，我把 <a href="https://juejin.im/post/59b73d5bf265da064618731d" target="_blank" rel="noopener">链接放这</a>;</p>
+<h2 id="开启方式"><a href="#开启方式" class="headerlink" title="开启方式"></a>开启方式</h2><ul>
+<li>设置父元素为浮动元素</li>
+<li>设置父元素为绝对定位</li>
+<li>设置父元素为行内块级元素(display: inline-block)</li>
+<li>设置父元素overflow: hidden</li>
+</ul>
+<p>如果只是单纯的想要开启BFC，前三种方式有点暴力，所以大多数情况下，我们选择<strong>第四种</strong></p>
+<h2 id="开启后的特性"><a href="#开启后的特性" class="headerlink" title="开启后的特性"></a>开启后的特性</h2><ul>
+<li>父元素的垂直外边距不会与子元素的重叠</li>
+<li>不会被浮动元素盖住</li>
+<li>可以包含浮动元素</li>
+</ul>
+<p>我们就是利用<strong>第三点</strong>来解决高度塌陷问题</p>
+<h1 id="方式二-在塌陷的父元素的最后添加一个空白的div，然后对该div进行清除浮动"><a href="#方式二-在塌陷的父元素的最后添加一个空白的div，然后对该div进行清除浮动" class="headerlink" title="方式二: 在塌陷的父元素的最后添加一个空白的div，然后对该div进行清除浮动"></a>方式二: 在塌陷的父元素的最后添加一个空白的div，然后对该div进行清除浮动</h1><p>像这样<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"box1"</span>&gt;</span><br><span class="line">	&lt;div id=<span class="string">"box2"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">	&lt;div id =<span class="string">'box3'</span> style=<span class="string">"clear:both"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>为什么这样就可以解决问题了呢，这里涉及一个清除浮动的问题，<code>clear:both</code>,清除浮动对该元素的影响，换句话说：前一个元素浮动以后，因为浮动元素脱离了标准流，后边元素的位置是会发生变化的，如果不想发生变化，就需要给后边的元素加上一句：<code>clear:both</code>;<br>应用到我们这几行代码中就是，box3的位置不会因为box2的浮动而变化，box3一直在原地撑着，那么box1的高度也不会发生变化。over！</p>
+<h1 id="方式三：使用after伪类，向父元素后添加一个块元素，并对其清除浮动"><a href="#方式三：使用after伪类，向父元素后添加一个块元素，并对其清除浮动" class="headerlink" title="方式三：使用after伪类，向父元素后添加一个块元素，并对其清除浮动"></a>方式三：使用after伪类，向父元素后添加一个块元素，并对其清除浮动</h1><p>大家可能发现了，方式二的解决方法并不是很好，因为它平白无故在box1里添加了一个多余标签，方式三就是为了解决掉方式二存在的问题，同时又能解决塌陷<br>css代码如下<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">	<span class="attribute">display</span>:block;</span><br><span class="line">	<span class="attribute">clear</span>:both;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>html代码如下<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box1"</span> <span class="attr">class</span> = <span class="string">'clearfix'</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>方式二和方式三的解决办法是一样的，都是在子元素后边添加一些内容，并对这些内容清除浮动，但是方式三相比方式二不需要添加多余的结构</strong></p>
+<p>以上</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-09-24T04:44:30.629Z" itemprop="dateUpdated">2018-09-24 12:44:30</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/blog/2018/09/24/浮动-塌陷问题/" target="_blank" rel="external">https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/</a>
+        
+    </div>
+    <footer>
+        <a href="https://hanrenhui.coding.me/blog">
+            <img src="/blog/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+            <div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+            
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/浮动/">浮动</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浮动-塌陷问题》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+            
+    <div id="comment"></div>
+
+
+
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/blog/2018/09/03/CSS常见布局方式-二/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">CSS常见布局方式(二)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一点废话"><span class="post-toc-number">1.</span> <span class="post-toc-text">一点废话</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是高度塌陷"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是高度塌陷</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方式一-开启父元素BFC"><span class="post-toc-number">3.</span> <span class="post-toc-text">方式一:开启父元素BFC</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开启方式"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">开启方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开启后的特性"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">开启后的特性</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方式二-在塌陷的父元素的最后添加一个空白的div，然后对该div进行清除浮动"><span class="post-toc-number">4.</span> <span class="post-toc-text">方式二: 在塌陷的父元素的最后添加一个空白的div，然后对该div进行清除浮动</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#方式三：使用after伪类，向父元素后添加一个块元素，并对其清除浮动"><span class="post-toc-number">5.</span> <span class="post-toc-text">方式三：使用after伪类，向父元素后添加一个块元素，并对其清除浮动</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+    <div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        我们一起来让这个世界有趣一点
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/blog/img/reward-wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/blog/img/reward-wechat.jpg" data-alipay="/blog/img/reward-alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+    
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                韓仁輝 &copy; 2017 - 2018
+            </span>
+        		
+           	
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《浮动-塌陷问题》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACn0lEQVR42u3aQVLDMBAEwPz/03DhRpHM7EoQqtqnlLFltQ+WmN3HIz4+nh4/XZncOxvz8IGHh4d3YerJmfxZ338n1+SvDA8PD+93eO1j8jPJlc9f2fO7Xljw8PDw3oDXTqtdGNpFAg8PD+//8va/k0UFDw8P7314SRiRTKgNL15ECaNoGA8PD+82bxO//tXvK/U9PDw8vHVVPSnn58FE+xI38/waBw8PD+8Cr41T8whgVvRKNs31PPHw8PCu8ZKIIf9857BNwBE1FuDh4eFd4yWhagtozyRRch1P4OHh4V3j5eFCHjS0W+F9jPuivoeHh4d3iLePHmZx7ayp63BhDA8PD6/ktc1S+6aoJLrdzO3H+h4eHh7eId6puLYthrVr12ZTjoeHh3ePl0eu7YRmhatNuwAeHh7ePd6mXWDTStXGFu2YeHh4eLd5bfNTWxjbBBPtgYeHh3eb1wYEm2mdWhiSp9RdCXh4eHglrw0RWkY+lXrT3Aa+eHh4eGteO8Se0X7QV8U5PDw8vAu85MFtsDuLKvIR2lADDw8P7x5vFsXuP9n7kYtWAzw8PLyjvOTBs/aCNq5tj+GSgIeHhzfi5aWj2ec+jzD2r3u6FOLh4eFN6vXtP/anlopZDNHei4eHh3ePl7cRtG1VsxeUv9zHZk3Dw8PDW/PyRWJT+J81CuQNXnh4eHi/w0s+7qei230IUlyPh4eHd5T3UR5t0PCcsQlBopgDDw8P7wJvVp6fbYXbIlYb3a5aEPDw8PBKXhvOtpHu/q+rZQMPDw/vGi+pHCXT2ocOs/A3Sqnx8PDw/oiXBwTJlbM9fhF84OHh4b0Zr40S2qi33dAXNTQ8PDy8Ne9GcLC/dxYo4+Hh4d3mDXu1Fuc3IcWm2QsPDw9vzfsEewnuA3lslUYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/blog/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/blog/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/blog/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/valine.js?v=1.3.2"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/leancloud_visitors.js?v=1.3.2"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+  daovoice('init', {
+    app_id: "f7ac8962"
+  });
+  daovoice('update');
+</script>
+
+    
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-120},"mobile":{"show":true,"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"react":{"opacityDefault":0.8,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
