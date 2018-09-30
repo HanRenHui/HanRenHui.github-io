@@ -231,18 +231,16 @@
             
             <p>原型链是实现继承的主要方式，其基本思想就是利用原型链让一个引用类型继承另一个引用类型的属性和方法；举个栗子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">Person.prototype.Say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Person say"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Man = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Man.prototype = <span class="keyword">new</span> Person();<span class="comment">//这句是重点</span></span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Man();</span><br><span class="line">man.Say();  <span class="comment">//Person say</span></span><br></pre></td></tr></table></figure></p>
 <p>那么<code>Man.prototype = new Person();</code>这句话是如何实现继承的呢？在回答这个问题之前，我们先来看看<code>new</code>的过程中的发生了什么：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">Person.prototype.Say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Person say"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br><span class="line">p.Say();</span><br></pre></td></tr></table></figure></p>
-<p>我们可以把new的过程拆分成以下三步：</p>
+<p>我们可以把new的过程拆分成以下四步：</p>
 <ul>
-<li><p>var p={}; 也就是说，初始化一个对象p。</p>
-</li>
-<li><p>p.<strong>proto</strong>=Person.prototype;</p>
-</li>
-<li><p>Person.call(p);也就是说构造p，也可以称之为初始化p。</p>
-</li>
+<li>创建一个新对象</li>
+<li>p.<strong>proto</strong>=Person.prototype; </li>
+<li>将构造函数的作用域赋给新对象 </li>
+<li>执行构造函数中的代码，并返回新对象</li>
 </ul>
-<p>最重要的是第二点，其实每个对象的内部都有一个<em>proto</em>对象，在<code>new</code>的过程中，实例对象<code>p</code>内部的<strong>proto</strong>属性就会指向构造函数内部的prototype属性,当调用<code>p.Say()</code>方法时，会先去p内部找<code>Say()</code>方法，如果找不到则会去找<em>proto</em>对象，而此时的<em>proto</em>对象正指向构造函数内部的prototype属性,所有就会去构造函数内部的prototype属性内部找；</p>
-<p>这点明白以后我们再回去看开头那个栗子，<br>类比<code>var p = new Person();</code>这句话，刚才我们说p内部的<em>proto</em>属性会指向构造函数内部的prototype属性，<code>Man.prototype = new Person();</code>这句话内部发生了什么呢？没错Man.prototype内部的<em>proto</em>属性会指向构造函数内部的prototype属性；</p>
-<p>当我们调用man.Say()方法时，会先去man内部找，man内部找不到再去man内部的<em>proto</em>对象找，<em>proto</em>对象指向Man.prototype,再在这里面找，还找不到，再找<em>proto</em>(Man.prototype内部的),<br>而此时Man.prototype内部的<em>proto</em>属性正指向父类的构造函数的prototype，再继续寻找下去，直到找到为止；</p>
+<p>最重要的是第三点，其实每个对象的内部都有一个<em>proto</em>对象，在<code>new</code>的过程中，实例对象<code>p</code>内部的<strong>proto</strong>属性就会指向构造函数内部的prototype属性,当调用<code>p.Say()</code>方法时，会先去p内部找<code>Say()</code>方法，如果找不到则会去找<em>proto</em>对象，而此时的<em>proto</em>对象正指向构造函数内部的prototype属性,所有就会去构造函数内部的prototype属性内部找；</p>
+<p>这点明白以后我们再回去看开头那个栗子,<code>var p = new Person();</code>这句话，刚才我们说p内部的<em>proto</em>属性会指向构造函数内部的prototype属性，类比一下，那么<code>Man.prototype = new Person();</code>这句话内部发生了什么呢？没错Man.prototype内部的<em>proto</em>属性会指向构造函数内部的prototype属性；</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>前面说过每个对象的内部都有一个<em>proto</em>对象，当我们调用man.Say()方法时，会先去man内部找，man内部找不到就回去找内部的<em>proto</em>对象，<em>proto</em>对象指向Man.prototype,再在这里面找，还找不到，再找<em>proto</em>(Man.prototype内部的),而此时Man.prototype内部的<em>proto</em>属性正指向父类的构造函数的prototype，再继续寻找下去，直到找到为止；</p>
 <p><strong>这也就是原型链的实现原理。最后，其实prototype只是一个假象，他在实现原型链中只是起到了一个辅助作用，换句话说，他只是在new的时候有着一定的价值，而原型链的本质，其实在于<strong>proto</strong>！</strong></p>
 <blockquote>
 <p><strong>proto</strong>、prototype傻傻分不清楚？ 记住以下两点:<br><strong>proto</strong>是每个对象都有的一个属性，而prototype是函数才会有的属性。<br><strong>proto</strong>指向的是当前对象的原型对象，而prototype指向的，是以当前函数作为构造函数构造出来的对象的原型对象;</p>
@@ -254,7 +252,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-08-19T08:39:14.935Z" itemprop="dateUpdated">2018-08-19 16:39:14</time>
+    最后更新时间：<time datetime="2018-09-30T06:24:23.676Z" itemprop="dateUpdated">2018-09-30 14:24:23</time>
 </span><br>
 
 
@@ -391,6 +389,14 @@
     <a class="link" href=""></a>
 </div>
     
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-number">1.</span> <span class="post-toc-text">小结</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
     
 </article>
 
