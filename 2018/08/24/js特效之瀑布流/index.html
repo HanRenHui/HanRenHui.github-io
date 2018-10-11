@@ -17,8 +17,8 @@
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
-            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":true,"lazy":false,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
             d: JSON.parse('{"app_id":"f7ac8962"}')
         };
     </script>
@@ -232,7 +232,7 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>js中的特效部分真的挺有意思，不需要篇幅过长的代码就可以写出一个小玩意儿来获得内心得一点点成就感，而且还可以加入一些自己的想法和设计，这篇文章记录下我封装的实现瀑布流的方法</p>
 <h1 id="何为瀑布流"><a href="#何为瀑布流" class="headerlink" title="何为瀑布流"></a>何为瀑布流</h1><p>说白了就是一堆照片的排列，但这些照片的排列是有一定规则的，语言表达能力差，show you the picture:</p>
 <figure class="image-box">
-                <a rel= js特效之瀑布流 href="1.png" class="swipebox" title=undefined><img src="1.png" alt="" title="" class=""></a>
+                <a rel= js特效之瀑布流 href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 <p>so,can you see that? 我都看出特点了，各位一定也能看出来，我们总结一下这些图片的<code>规律</code>：</p>
@@ -286,12 +286,6 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
         <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
@@ -300,12 +294,6 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
         </a>
       </li>
       
@@ -454,6 +442,12 @@
            	
             
             
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
 
             
                 
@@ -483,12 +477,6 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
         <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
@@ -497,12 +485,6 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/&title=《 js特效之瀑布流》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/08/24/js特效之瀑布流/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
         </a>
       </li>
       
@@ -639,7 +621,7 @@
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

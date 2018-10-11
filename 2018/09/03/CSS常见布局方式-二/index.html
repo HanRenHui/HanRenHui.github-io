@@ -17,8 +17,8 @@
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
-            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":true,"lazy":false,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
             d: JSON.parse('{"app_id":"f7ac8962"}')
         };
     </script>
@@ -236,32 +236,32 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: seagreen;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.middle</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: steelblue;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>目前是这个逼样👇</p>
 <figure class="image-box">
-                <a rel=CSS常见布局方式(二) href="1.png" class="swipebox" title=undefined><img src="1.png" alt="" title="" class=""></a>
+                <a rel=CSS常见布局方式(二) href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 <p>接下来我们把这仨哥们放到同一行，这需要利用<strong>负margin</strong>的技巧：我们给left和right的CSS样式做如下修改：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">margin-left</span>: -<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>现在布局变成这样👇<br><figure class="image-box">
-                <a rel=CSS常见布局方式(二) href="2.png" class="swipebox" title=undefined><img src="2.png" alt="" title="" class=""></a>
+                <a rel=CSS常见布局方式(二) href="2.png" class="swipebox" title="undefined"><img src="2.png" alt="" title="" class=""></a>
                 <p></p>
             </figure></p>
 <p>此时中间部分的内容是盖住的，为了内容不被盖住，我们可以通过给父盒子设置<code>padding</code>的方式来让中间的内容只显示在中间；同时为了两边的盒子位置不变，我们需要添加如下的CSS样式代码<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.left</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">left</span>:-<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.right</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>:relative;</span><br><span class="line">    <span class="attribute">right</span>:-<span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>现在是最终布局：👇<br><figure class="image-box">
-                <a rel=CSS常见布局方式(二) href="3.png" class="swipebox" title=undefined><img src="3.png" alt="" title="" class=""></a>
+                <a rel=CSS常见布局方式(二) href="3.png" class="swipebox" title="undefined"><img src="3.png" alt="" title="" class=""></a>
                 <p></p>
             </figure><br>试着压缩浏览器宽度后：👇<br><figure class="image-box">
-                <a rel=CSS常见布局方式(二) href="4.png" class="swipebox" title=undefined><img src="4.png" alt="" title="" class=""></a>
+                <a rel=CSS常见布局方式(二) href="4.png" class="swipebox" title="undefined"><img src="4.png" alt="" title="" class=""></a>
                 <p></p>
             </figure></p>
 <h1 id="双飞翼布局"><a href="#双飞翼布局" class="headerlink" title="双飞翼布局"></a>双飞翼布局</h1><p>其实双飞翼布局是为了解决圣杯布局的弊端提出的，上面的圣杯布局的代码存在一个问题，当你将浏览器宽度缩短到一定程度，使得中间子元素的宽度比左右子元素宽度小的时候，这时候布局就会出现问题。所以首先，这提示了我们在使用圣杯布局的时候一定要设置整个容器的最小宽度。</p>
 <figure class="image-box">
-                <a rel=CSS常见布局方式(二) href="5.png" class="swipebox" title=undefined><img src="5.png" alt="" title="" class=""></a>
+                <a rel=CSS常见布局方式(二) href="5.png" class="swipebox" title="undefined"><img src="5.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 <h1 id="双飞翼布局和圣杯布局的区别"><a href="#双飞翼布局和圣杯布局的区别" class="headerlink" title="双飞翼布局和圣杯布局的区别"></a>双飞翼布局和圣杯布局的区别</h1><blockquote>
 <p>圣杯布局和双飞翼布局解决问题的方案在前一半是相同的，也就是三栏全部float浮动，但左右两栏加上负margin让其跟中间栏div并排，以形成三栏布局。<br>不同在于解决”中间栏div内容不被遮挡“问题的思路不一样：圣杯布局，为了中间div内容不被遮挡，将中间div设置了左右padding-left和padding-right后，将左右 &gt; 两个div用相对布局position: relative并分别配合right和left属性，以便左右两栏div移动后不遮挡中间div。<br>双飞翼布局，为了中间div内容不被遮挡，直接在中间div内部创建子div用于放置内容，在该子div里用margin-left和margin-right为左右两栏div留出位置。</p>
 </blockquote>
 <figure class="image-box">
-                <a rel=CSS常见布局方式(二) href="6.png" class="swipebox" title=undefined><img src="6.png" alt="" title="" class=""></a>
+                <a rel=CSS常见布局方式(二) href="6.png" class="swipebox" title="undefined"><img src="6.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 
@@ -305,12 +305,6 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/03/CSS常见布局方式-二/&title=《CSS常见布局方式(二)》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
         <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
@@ -319,12 +313,6 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/03/CSS常见布局方式-二/&title=《CSS常见布局方式(二)》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/03/CSS常见布局方式-二/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
         </a>
       </li>
       
@@ -473,6 +461,12 @@
            	
             
             
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
 
             
                 
@@ -502,12 +496,6 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/03/CSS常见布局方式-二/&title=《CSS常见布局方式(二)》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
         <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
@@ -516,12 +504,6 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/03/CSS常见布局方式-二/&title=《CSS常见布局方式(二)》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/03/CSS常见布局方式-二/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
         </a>
       </li>
       
@@ -658,7 +640,7 @@
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 

@@ -17,8 +17,8 @@
         var DC = {
             reward:	true,
             lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
-            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":false,"verify":false,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
-            g: JSON.parse('{"enable":true,"lazy":false,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
             d: JSON.parse('{"app_id":"f7ac8962"}')
         };
     </script>
@@ -232,11 +232,11 @@
             <h1 id="一点废话"><a href="#一点废话" class="headerlink" title="一点废话"></a>一点废话</h1><p>昨晚学习了解决浮动带来的父元素高度塌陷的问题，解决方法还挺多，就在这记录一下加深下印象，也方便后边的查阅；老规矩，废话不多说，直奔主题;</p>
 <h1 id="什么是高度塌陷"><a href="#什么是高度塌陷" class="headerlink" title="什么是高度塌陷"></a>什么是高度塌陷</h1><p>大家都知道块级元素的高度会由子元素撑起来，但是子元素一旦浮动以后，块级元素的高度就没有了，就像下图这样：</p>
 <figure class="image-box">
-                <a rel=浮动-塌陷问题 href="未浮动.png" class="swipebox" title=undefined><img src="未浮动.png" alt="[未浮动]" title="" class=""></a>
+                <a rel=浮动-塌陷问题 href="未浮动.png" class="swipebox" title="undefined"><img src="未浮动.png" alt="[未浮动]" title="" class=""></a>
                 <p>[未浮动]</p>
             </figure>
 <figure class="image-box">
-                <a rel=浮动-塌陷问题 href="浮动.png" class="swipebox" title=undefined><img src="浮动.png" alt="[浮动以后]" title="" class=""></a>
+                <a rel=浮动-塌陷问题 href="浮动.png" class="swipebox" title="undefined"><img src="浮动.png" alt="[浮动以后]" title="" class=""></a>
                 <p>[浮动以后]</p>
             </figure>
 <p>其实最简单的解决方式就是给<strong>块级元素一个高度</strong>，让它不依赖子元素的高度，但是在实际应用当中，我们很少会给父元素高度，因为子元素的内容是从后台取出来的，有多少内容你也不知道，自然不能给明确的高度；那怎么搞? 不急往下看；</p>
@@ -301,12 +301,6 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
         <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
@@ -315,12 +309,6 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
         </a>
       </li>
       
@@ -462,6 +450,12 @@
            	
             
             
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
 
             
                 
@@ -491,12 +485,6 @@
     <ul class="reset share-icons">
       
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&pic=https://hanrenhui.coding.me/blog/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      
-      <li>
         <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
           <i class="icon icon-weixin"></i>
         </a>
@@ -505,12 +493,6 @@
       <li>
         <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/&title=《浮动-塌陷问题》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://hanrenhui.coding.me/blog/2018/09/24/浮动-塌陷问题/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
         </a>
       </li>
       
@@ -647,7 +629,7 @@
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
