@@ -238,17 +238,15 @@
 <li>将构造函数的作用域赋给新对象 </li>
 <li>执行构造函数中的代码，并返回新对象</li>
 </ul>
-<p>最重要的是第三点，其实每个对象的内部都有一个<em>proto</em>对象，在<code>new</code>的过程中，实例对象<code>p</code>内部的<strong>proto</strong>属性就会指向构造函数内部的prototype属性,当调用<code>p.Say()</code>方法时，会先去p内部找<code>Say()</code>方法，如果找不到则会去找<em>proto</em>对象，而此时的<em>proto</em>对象正指向构造函数内部的prototype属性,所有就会去构造函数内部的prototype属性内部找；</p>
-<p>这点明白以后我们再回去看开头那个栗子,<code>var p = new Person();</code>这句话，刚才我们说p内部的<em>proto</em>属性会指向构造函数内部的prototype属性，类比一下，那么<code>Man.prototype = new Person();</code>这句话内部发生了什么呢？没错Man.prototype内部的<em>proto</em>属性会指向构造函数内部的prototype属性；</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>前面说过每个对象的内部都有一个<em>proto</em>对象，当我们调用man.Say()方法时，会先去man内部找，man内部找不到就回去找内部的<em>proto</em>对象，<em>proto</em>对象指向Man.prototype,再在这里面找，还找不到，再找<em>proto</em>(Man.prototype内部的),而此时Man.prototype内部的<em>proto</em>属性正指向父类的构造函数的prototype，再继续寻找下去，直到找到为止；</p>
+<p>最重要的是第二点，其实每个对象的内部都有一个<em>proto</em>属性，在<code>new</code>的过程中，实例对象<code>p</code>内部的<strong>proto</strong>属性就会指向构造函数内部的prototype属性,当调用<code>p.Say()</code>方法时，会先去p内部找<code>Say()</code>方法，如果找不到则会去找<em>proto</em>对象，而此时的<em>proto</em>对象正指向构造函数的prototype对象,所有就会去构造函数内部的prototype对象内部找；<br>这点明白以后我们再回去看开头那个栗子,<code>var p = new Person();</code>这句话，刚才我们说p内部的<em>proto</em>属性会指向构造函数内部的prototype属性，类比一下，那么<code>Man.prototype = new Person();</code>这句话内部发生了什么呢？没错Man.prototype内部的<em>proto</em>属性会指向父类构造函数内部的prototype对象；</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>前面说过每个对象的内部都有一个<em>proto</em>对象，当我们调用man.Say()方法时，会先去man内部找，man内部找不到就回去找内部的<em>proto</em>对象，<em>proto</em>对象指向Man.prototype,再在这里面找，还找不到，再找<em>proto</em>(Man.prototype内部的),而此时Man.prototype内部的<em>proto</em>属性正指向父类的构造函数的prototype，再继续寻找下去，直到找到为止，如果一直找不到呢？链条的顶部就是<code>Object.prototype</code>(Object.prototype也是一个对象，既然是对象，那么它就是通过Object构造函数创建出来的，那么结合上面讲的，object.prototype内部也有个指向构造函数的proto属性),而<code>Object.prototype</code>内部的<code>proto</code>属性为<code>null</code>；<br><figure class="image-box">
+                <a rel=js中的原型链，prototype和和_proto_的关系 href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="[来自掘金]" title="" class=""></a>
+                <p>[来自掘金]</p>
+            </figure></p>
 <p><strong>这也就是原型链的实现原理。最后，其实prototype只是一个假象，他在实现原型链中只是起到了一个辅助作用，换句话说，他只是在new的时候有着一定的价值，而原型链的本质，其实在于<strong>proto</strong>！</strong></p>
 <blockquote>
 <p><strong>proto</strong>、prototype傻傻分不清楚？ 记住以下两点:<br><strong>proto</strong>是每个对象都有的一个属性，而prototype是函数才会有的属性。<br><strong>proto</strong>指向的是当前对象的原型对象，而prototype指向的，是以当前函数作为构造函数构造出来的对象的原型对象;</p>
 </blockquote>
-<p>最后附上一张超直观原型链图<br><figure class="image-box">
-                <a rel=js中的原型链，prototype和和_proto_的关系 href="666.png" class="swipebox" title="undefined"><img src="666.png" alt="[来自掘金]" title="" class=""></a>
-                <p>[来自掘金]</p>
-            </figure></p>
 
         </div>
         
@@ -256,7 +254,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-05T08:42:00.799Z" itemprop="dateUpdated">2018-10-05 16:42:00</time>
+    最后更新时间：<time datetime="2018-10-20T03:12:09.112Z" itemprop="dateUpdated">2018-10-20 11:12:09</time>
 </span><br>
 
 

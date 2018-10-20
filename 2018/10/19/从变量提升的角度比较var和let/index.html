@@ -246,8 +246,12 @@
 <li>初始化阶段 (在这个阶段变量就可以访问了，但是值是undefined)</li>
 <li>赋值阶段</li>
 </ul>
-<p>当js遇到一个作用域时，如果有var声明的变量（并不是代码执行到这一行，而是引擎瞅了一眼该域中全部代码,发现这个作用域里有var声明的变量），便会首先对这个变量 声明和初始化，也就是变量生命周期的前两个阶段，就相当于在作用于头部var了一个变量，但是并没有赋值（此时的值为undefined）；进行完这两个阶段以后js引擎才正式从作用域头部开始一行行执行代码，在碰到变量的赋值语句之前，所有访问该变量的代码都返回undefined，执行完赋值语句后该变量才正式拥有值，代码也才可以正常访问该值;</p>
-<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>那么var和let的区别是什么呢，变量无论是通过let声明，还是var声明，变量的生命周期是不会变的，不同点在于var量时，声明阶段和初始化阶段是一起 的，而let变量是分开的，上边说到，js遇到一个作用域，打眼一看对var声明的所有变量进行声明和初始化,此时变量可以访问，但是值要等到执行完赋值语句才会有；而let呢，let定义的变量，js打眼一看，只会对这些变量进行声明这一步操作，等到let a 执行的时候才会完成初始化阶段，而在let a 执行之前是不能访问到let 定义的所有变量的，这难道就是es6里的暂时性死区？let a 执行之后才会把变量从暂时性死区中放出来，最后赋值语句执行完以后就可以拿到a的准确值了</p>
+<h1 id="javascript引擎的工作方式"><a href="#javascript引擎的工作方式" class="headerlink" title="javascript引擎的工作方式"></a>javascript引擎的工作方式</h1><ul>
+<li>先解析代码，获取所有被声明的变量</li>
+<li>然后一行行运行代码</li>
+</ul>
+<p>也就是说，js引擎会分为预处理和执行两个阶段，当js引擎遇到一个作用域时，如果有var声明的变量（并不是代码执行到这一行，而是引擎瞅了一眼该域中全部代码,发现这个作用域里有var声明的变量），便会首先对这个变量 声明和初始化(<strong>引擎预处理阶段</strong>)，也就是变量生命周期的前两个阶段，就相当于在作用于头部<code>var</code>了一个变量，但是并没有赋值（此时的值为<code>undefined</code>）;进行完这两个阶段以后js引擎才正式从作用域头部开始一行行执行代码(<strong>引擎执行阶段</strong>)，在碰到变量的赋值语句之前，所有访问该变量的代码都返回<code>undefined</code>，执行完赋值语句后该变量才正式拥有值，代码也才可以正常访问该值;</p>
+<h1 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h1><p>那么var和let的区别是什么呢，变量无论是通过let声明，还是var声明，变量的生命周期是不会变的，不同点在于var量时，声明阶段和初始化阶段是一起 的，而let变量是分开的，上边说到，js遇到一个作用域，打眼一看对var声明的所有变量进行声明和初始化,此时变量可以访问，但是值要等到执行完赋值语句才会有；而let呢，let定义的变量，js引擎在预处理阶段，只会对这些变量进行声明这一步操作，等到let a 执行的时候才会完成初始化阶段，而在let a 执行之前是不能访问到let 定义的所有变量的，这难道就是es6里的暂时性死区？let a 执行之后才会把变量从暂时性死区中放出来，最后赋值语句执行完以后就可以拿到a的准确值了</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>其实var和let都会存在提升的这样一种情况，只不过var 的话会完成变量声明周期的前两个阶段，相当于var a；所以之后就可以访问到了，而let的话只是完成生命周期的第一个阶段，此时的变量被放入了暂时性死区，在作用域中未初始化阶段访问会报错：<br>以上</p>
 
         </div>
@@ -256,7 +260,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-10-19T04:57:10.585Z" itemprop="dateUpdated">2018-10-19 12:57:10</time>
+    最后更新时间：<time datetime="2018-10-20T02:25:34.368Z" itemprop="dateUpdated">2018-10-20 10:25:34</time>
 </span><br>
 
 
@@ -378,7 +382,7 @@
         <aside class="post-widget">
             <nav class="post-toc-wrap" id="post-toc">
                 <strong>目录</strong>
-                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#碎碎念"><span class="post-toc-number">1.</span> <span class="post-toc-text">碎碎念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是变量提升？"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是变量提升？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变量生命周期"><span class="post-toc-number">3.</span> <span class="post-toc-text">变量生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#区别"><span class="post-toc-number">4.</span> <span class="post-toc-text">区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">小结</span></a></li></ol></li></ol>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#碎碎念"><span class="post-toc-number">1.</span> <span class="post-toc-text">碎碎念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是变量提升？"><span class="post-toc-number">2.</span> <span class="post-toc-text">什么是变量提升？</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#变量生命周期"><span class="post-toc-number">3.</span> <span class="post-toc-text">变量生命周期</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#javascript引擎的工作方式"><span class="post-toc-number">4.</span> <span class="post-toc-text">javascript引擎的工作方式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#区别"><span class="post-toc-number">5.</span> <span class="post-toc-text">区别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小结"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">小结</span></a></li></ol></li></ol>
             </nav>
             <div class="toc-bar"><div>
         </aside>
