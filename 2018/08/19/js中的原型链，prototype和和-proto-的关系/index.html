@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     
     
-    <title>No title | This is My World | If I Can Turn Back Time</title>
+    <title>js中的原型链，prototype和和_proto_的关系 | This is My World | If I Can Turn Back Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="笔记,javascript">
     <link rel="shortcut icon" href="/blog/img/favicon.ico">
     <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
     <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
@@ -148,7 +148,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span></span>
+            <span>js中的原型链，prototype和和_proto_的关系</span>
             
         </div>
         
@@ -161,13 +161,15 @@
 <header class="content-header post-header">
     <img src="/blog/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title"></h1>
+        <h1 class="title">js中的原型链，prototype和和_proto_的关系</h1>
         <h5 class="subtitle">
             
-                <time datetime="2018-08-19T04:31:24.681Z" itemprop="datePublished" class="page-time">
+                <time datetime="2018-08-19T04:31:24.000Z" itemprop="datePublished" class="page-time">
   2018-08-19
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/javascript/">javascript</a></li></ul></li></ul>
 
             
         </h5>
@@ -195,15 +197,17 @@
     <article id="post-js中的原型链，prototype和和-proto-的关系"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title"></h1>
+        <h1 class="post-card-title">js中的原型链，prototype和和_proto_的关系</h1>
         <div class="post-meta">
-            <time class="post-time" title="2018-08-19 12:31:24" datetime="2018-08-19T04:31:24.681Z"  itemprop="datePublished">2018-08-19</time>
+            <time class="post-time" title="2018-08-19 12:31:24" datetime="2018-08-19T04:31:24.000Z"  itemprop="datePublished">2018-08-19</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/javascript/">javascript</a></li></ul></li></ul>
+
 
 
             
-	<span id="/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/" class="leancloud_visitors" data-flag-title="" title="">
+	<span id="/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/" class="leancloud_visitors" data-flag-title="js中的原型链，prototype和和_proto_的关系" title="js中的原型链，prototype和和_proto_的关系">
 		
 			<i class="icon icon-eye"></i>
 		
@@ -225,14 +229,48 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             
-            
+            <p>原型链是实现继承的主要方式，其基本思想就是利用原型链让一个引用类型继承另一个引用类型的属性和方法；举个栗子<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Person = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; &#125;;</span><br><span class="line">Person.prototype.Say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Person say"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Man = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Man.prototype = <span class="keyword">new</span> Person();<span class="comment">//这句是重点</span></span><br><span class="line"><span class="keyword">var</span> man = <span class="keyword">new</span> Man();</span><br><span class="line">man.Say();  <span class="comment">//Person say</span></span><br></pre></td></tr></table></figure></p>
+<p>那么<code>Man.prototype = new Person();</code>这句话是如何实现继承的呢？在回答这个问题之前，我们先来看看<code>new</code>的过程中的发生了什么：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'hrh'</span>;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">21</span>;</span><br><span class="line">&#125;;</span><br><span class="line">Person.prototype.Say = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"Person say"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> p = <span class="keyword">new</span> Person();</span><br><span class="line">p.Say();</span><br></pre></td></tr></table></figure></p>
+<p>我们可以把new的过程拆分成以下几步：</p>
+<ul>
+<li>创建一个新对象</li>
+<li>将构造函数的作用域赋给新对象 </li>
+<li>将新对象的<strong>proto</strong>属性指向构造函数的prototype</li>
+<li>执行构造函数中的代码</li>
+<li>返回创建的新对象 </li>
+</ul>
+<p>所以对于上边的构造函数，在<code>new</code>的过程中，引擎在底层给你这么干了👇<br><code></code>js<br>    function Person() {<br>        // 创建一个新对象<br>        let obj = new Object();</p>
+<pre><code>    // 把构造函数的作用域赋给新对象
+    Person.call(obj);
+
+    // 将新对象的__proto__属性指向构造函数的prototype
+    obj.__proto__ = Person.prototype;
+
+    // 执行构造函数中的代码
+    this.name = &apos;hrh&apos;;
+    this.age = 21;
+
+    // 返回新创建的对象
+    return obj;
+}
+</code></pre><p><code></code></p>
+<p>其实每个对象的内部都有一个<em>proto</em>属性，在<code>new</code>的过程中，实例对象<code>p</code>内部的<strong>proto</strong>属性就会指向构造函数内部的prototype属性,当调用<code>p.Say()</code>方法时，会先去p内部找<code>Say()</code>方法，如果找不到则会去找<em>proto</em>对象，而此时的<em>proto</em>对象正指向构造函数的prototype对象,所有就会去构造函数内部的prototype对象内部找；<br>这点明白以后我们再回去看开头那个栗子,<code>var p = new Person();</code>这句话，刚才我们说p内部的<em>proto</em>属性会指向构造函数内部的prototype属性，类比一下，那么<code>Man.prototype = new Person();</code>这句话内部发生了什么呢？没错Man.prototype内部的<em>proto</em>属性会指向父类构造函数内部的prototype对象；</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>前面说过每个对象的内部都有一个<em>proto</em>对象，当我们调用man.Say()方法时，会先去man内部找，man内部找不到就回去找内部的<em>proto</em>对象，<em>proto</em>对象指向Man.prototype,再在这里面找，还找不到，再找<em>proto</em>(Man.prototype内部的),而此时Man.prototype内部的<em>proto</em>属性正指向父类的构造函数的prototype，再继续寻找下去，直到找到为止，如果一直找不到呢？链条的顶部就是<code>Object.prototype</code>(Object.prototype也是一个对象，既然是对象，那么它就是通过Object构造函数创建出来的，那么结合上面讲的，object.prototype内部也有个指向构造函数的proto属性),而<code>Object.prototype</code>内部的<code>proto</code>属性为<code>null</code>；<br><figure class="image-box">
+                <a rel=js中的原型链，prototype和和_proto_的关系 href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="[]" title="" class=""></a>
+                <p>[]</p>
+            </figure></p>
+<p><strong>这也就是原型链的实现原理。最后，其实prototype只是一个假象，他在实现原型链中只是起到了一个辅助作用，换句话说，他只是在new的时候有着一定的价值，而原型链的本质，其实在于<strong>proto</strong>！</strong></p>
+<blockquote>
+<p><strong>proto</strong>、prototype傻傻分不清楚？ 记住以下两点:<br><strong>proto</strong>是每个对象都有的一个属性，而prototype是函数才会有的属性。<br><strong>proto</strong>指向的是当前对象的原型对象，而prototype指向的，是以当前函数作为构造函数构造出来的对象的原型对象;</p>
+</blockquote>
+
         </div>
         
 <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-02T03:05:47.355Z" itemprop="dateUpdated">2018-12-02 11:05:47</time>
+    最后更新时间：<time datetime="2018-12-02T03:05:47.359Z" itemprop="dateUpdated">2018-12-02 11:05:47</time>
 </span><br>
 
 
@@ -257,6 +295,8 @@
         
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
+
             <div class="page-share-wrap">
     
 
@@ -270,13 +310,13 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&title=This is My World&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&title=《js中的原型链，prototype和和_proto_的关系》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=This is My World&url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js中的原型链，prototype和和_proto_的关系》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -329,6 +369,40 @@
 
 
     
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小结"><span class="post-toc-number">1.</span> <span class="post-toc-text">小结</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
     
 </article>
 
@@ -427,13 +501,13 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&title=《No title》 — This is My World&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&title=《js中的原型链，prototype和和_proto_的关系》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《js中的原型链，prototype和和_proto_的关系》 — This is My World&url=https://hanrenhui.coding.me/blog/2018/08/19/js中的原型链，prototype和和-proto-的关系/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -478,6 +552,76 @@
 } )( jQuery );
 </script>
 
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
 
 
 
