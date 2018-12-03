@@ -239,21 +239,7 @@
 <li>执行构造函数中的代码</li>
 <li>返回创建的新对象 </li>
 </ul>
-<p>所以对于上边的构造函数，在<code>new</code>的过程中，引擎在底层给你这么干了👇<br><code></code>js<br>    function Person() {<br>        // 创建一个新对象<br>        let obj = new Object();</p>
-<pre><code>    // 把构造函数的作用域赋给新对象
-    Person.call(obj);
-
-    // 将新对象的__proto__属性指向构造函数的prototype
-    obj.__proto__ = Person.prototype;
-
-    // 执行构造函数中的代码
-    this.name = &apos;hrh&apos;;
-    this.age = 21;
-
-    // 返回新创建的对象
-    return obj;
-}
-</code></pre><p><code></code></p>
+<p>所以对于上边的构造函数，在<code>new</code>的过程中，引擎在底层给你这么干了👇<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 创建一个新对象</span></span><br><span class="line">    <span class="keyword">let</span> obj = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把构造函数的作用域赋给新对象</span></span><br><span class="line">    Person.call(obj);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将新对象的__proto__属性指向构造函数的prototype</span></span><br><span class="line">    obj.__proto__ = Person.prototype;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 执行构造函数中的代码</span></span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'hrh'</span>;</span><br><span class="line">    <span class="keyword">this</span>.age = <span class="number">21</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回新创建的对象</span></span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>其实每个对象的内部都有一个<em>proto</em>属性，在<code>new</code>的过程中，实例对象<code>p</code>内部的<strong>proto</strong>属性就会指向构造函数内部的prototype属性,当调用<code>p.Say()</code>方法时，会先去p内部找<code>Say()</code>方法，如果找不到则会去找<em>proto</em>对象，而此时的<em>proto</em>对象正指向构造函数的prototype对象,所有就会去构造函数内部的prototype对象内部找；<br>这点明白以后我们再回去看开头那个栗子,<code>var p = new Person();</code>这句话，刚才我们说p内部的<em>proto</em>属性会指向构造函数内部的prototype属性，类比一下，那么<code>Man.prototype = new Person();</code>这句话内部发生了什么呢？没错Man.prototype内部的<em>proto</em>属性会指向父类构造函数内部的prototype对象；</p>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>前面说过每个对象的内部都有一个<em>proto</em>对象，当我们调用man.Say()方法时，会先去man内部找，man内部找不到就回去找内部的<em>proto</em>对象，<em>proto</em>对象指向Man.prototype,再在这里面找，还找不到，再找<em>proto</em>(Man.prototype内部的),而此时Man.prototype内部的<em>proto</em>属性正指向父类的构造函数的prototype，再继续寻找下去，直到找到为止，如果一直找不到呢？链条的顶部就是<code>Object.prototype</code>(Object.prototype也是一个对象，既然是对象，那么它就是通过Object构造函数创建出来的，那么结合上面讲的，object.prototype内部也有个指向构造函数的proto属性),而<code>Object.prototype</code>内部的<code>proto</code>属性为<code>null</code>；<br><figure class="image-box">
                 <a rel=js中的原型链，prototype和和_proto_的关系 href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="[]" title="" class=""></a>
@@ -270,7 +256,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-12-02T03:05:47.359Z" itemprop="dateUpdated">2018-12-02 11:05:47</time>
+    最后更新时间：<time datetime="2018-12-03T04:42:54.993Z" itemprop="dateUpdated">2018-12-03 12:42:54</time>
 </span><br>
 
 
