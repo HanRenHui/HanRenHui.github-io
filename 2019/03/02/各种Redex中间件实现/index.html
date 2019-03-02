@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>React学习之Redux中间件⚡ | This is My World | If I Can Turn Back Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="笔记,Redux,Redux中间件">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	false,
+            lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            d: JSON.parse('{"app_id":"f7ac8962"}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+        <script type="text/javascript" src="/blog/js/plugins/daovoice.js?v=1.3.2"></script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/blog/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">韓仁輝</h5>
+          <a href="mailto:897691781@qq.com" title="897691781@qq.com" class="mail">
+            
+              <span>8</span>
+            
+              <span>9</span>
+            
+              <span>7</span>
+            
+              <span>6</span>
+            
+              <span>9</span>
+            
+              <span>1</span>
+            
+              <span>7</span>
+            
+              <span>8</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/HanRenHui" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>React学习之Redux中间件⚡</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/blog/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">React学习之Redux中间件⚡</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-02T04:27:00.000Z" itemprop="datePublished" class="page-time">
+  2019-03-02
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Redux/">Redux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Redux/Redux中间件/">Redux中间件</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-各种Redex中间件实现"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">React学习之Redux中间件⚡</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-03-02 12:27:00" datetime="2019-03-02T04:27:00.000Z"  itemprop="datePublished">2019-03-02</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Redux/">Redux</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Redux/Redux中间件/">Redux中间件</a></li></ul></li></ul></li></ul>
+
+
+
+            
+	<span id="/blog/2019/03/02/各种Redex中间件实现/" class="leancloud_visitors" data-flag-title="React学习之Redux中间件⚡" title="React学习之Redux中间件⚡">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/blog/2019/03/02/各种Redex中间件实现/#comment">
+            <span class="valine-comment-count" data-xid="/blog/2019/03/02/各种Redex中间件实现/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近处于React疯狂痴迷状态，今天记录各种Redux中间件的实现</p>
+<h1 id="日志-logger-中间件"><a href="#日志-logger-中间件" class="headerlink" title="日志(logger)中间件"></a>日志(logger)中间件</h1><h2 id="logger使用"><a href="#logger使用" class="headerlink" title="logger使用"></a>logger使用</h2><p>日志中间件可以记录state在更新前后的值, 利用的是store中的<code>applyMiddleware</code>, <code>applyMiddleware</code>主要思想就是把Redux工作流中的dispatch环节封装，返回一个新的store，该store中其他部分没有变化，只是dispatch被新的dispatch覆盖, 我们先来看看是怎么用的👇<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> logger = <span class="function"><span class="params">store</span> =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> store = applyMiddleware(logger)(createStore)(reducer)</span><br><span class="line"></span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>: <span class="string">'INCREASE'</span>, <span class="attr">count</span>: <span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>这里的<code>applyMiddleware</code>内部主要是对dispacth做了一层封装，并封盖掉store中旧的dispatch，并返回这个新的store, 那它是怎么实现能够获得旧状态和新状态的呢？ 其实是在logger函数中调用next()之前是没有调用store中的dispatch的, 根据昨天<a href="http://www.hanrenhui.cn/blog/2019/02/08/React%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AARedux/" target="_blank" rel="noopener">redux实现的笔记</a>中, 只有调用dispatch，diapatch内部才会调用reducer才会更新状态(state),而logger函数内部的next就是dispatch函数啦，看它接受了一个action就知道啦, 知道了大体思想, 后面所有的中间件都会使用他，我们来自己写一下吧👇</p>
+<h2 id="applyMiddleware实现"><a href="#applyMiddleware实现" class="headerlink" title="applyMiddleware实现"></a>applyMiddleware实现</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> applyMiddleware = <span class="function"><span class="params">middleware</span> =&gt;</span> createStore =&gt; <span class="function"><span class="params">reducer</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 旧store</span></span><br><span class="line">  <span class="keyword">let</span> store = createStore(reducer)</span><br><span class="line">  middleware = middleware(store)</span><br><span class="line">  <span class="comment">// 新dispacth</span></span><br><span class="line">  <span class="keyword">let</span> dispatch = middleware(store.dispatch)</span><br><span class="line">  <span class="comment">// 新store</span></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ...store,</span><br><span class="line">    dispatch</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们大体结合logger来解释下，首先applyMiddleware内部通过调用传入的createStore返回一个store，并把store.dispatch传入了middleware也就是logger中，这时返回一个函数dispatch， 它的函数体就是下边这个样子👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下一步<strong>return</strong>以后，<code>store</code>里的dispatch就被这个覆盖掉了，当我们调用store的dispatch方法时也是调用的这个, redux实现笔记中可以看到，旧的disaptch的函数体是这样子的👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> dispatch = <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  state = reducer(action)</span><br><span class="line">  emit()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，旧的dispatch一调用，我们的state就更新了，而新的dispatch函数体(我们后边简写为newDis)里是没有更新state语句的，所以在newDis内部是可以拿到旧的state的，那么我们怎么让state更新呢？ 通过调用next方法并把action传入, 这里的next方法就是store.dispatch, 是applyMiddleware内部给他传入的，就是这一句<code>middleware(store.dispatch)</code>, 调用next(action)方法其实就是调用了原来的dispatch，这时状态(state)就可以更新了😄</p>
+<h1 id="redux-thunk"><a href="#redux-thunk" class="headerlink" title="redux-thunk"></a>redux-thunk</h1><p>thunk中间件是为了解决dispatch中的异步问题，在redux中，dispatch被调用后内部会同步调用reducer从来更新store, 我们要想实现异步的话，只能是再次利用<code>applyMiddleware</code>了, 看下封装后的dispatch是怎么使用的，我们根据使用来写thunk中间件👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> store = applyMiddleware(thunk)(createStore)(reducer)</span><br><span class="line">store.dispatch(<span class="function"><span class="params">dispatch</span> =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      dispatch(&#123;<span class="attr">type</span>: <span class="string">'INCREASE'</span>, <span class="attr">count</span>: <span class="number">2</span>&#125;)</span><br><span class="line">      <span class="comment">// console.log(store.getState());</span></span><br><span class="line">  &#125;, <span class="number">3000</span>);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>看来封装后的dispatch不是接收一个action了，而是一个回调，那我们来写下吧</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> thunk = <span class="function"><span class="params">store</span> =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> action === <span class="string">'function'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> action(next)</span><br><span class="line">  &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> next(action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们在上边logger中说到,thunk尾部的<code>action =&gt; { ... }</code>这个函数就是我们<strong>封装以后的dispatch</strong>, 新的dispatch接受一个回调，所以我们先检测action的类型，是函数则直接调用传入的回调，并把原来的dispatch 也就是next传入, 不是函数则是同步调用，直接调用原来的dispatch</p>
+<h1 id="redux-promise"><a href="#redux-promise" class="headerlink" title="redux-promise"></a>redux-promise</h1><p><code>promise</code> 和 <code>thunk</code>的作用一致， 都是解决异步问题的，只不过<code>promise</code>写起来更<del>装犊子</del>优雅一点😄， 看写法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isPromise = <span class="function"><span class="params">obj</span> =&gt;</span> obj.then</span><br><span class="line"><span class="keyword">const</span> promise = <span class="function"><span class="params">store</span> =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(isPromise(action)) &#123;</span><br><span class="line">    <span class="keyword">let</span> promise = action </span><br><span class="line">    <span class="keyword">return</span> promise.then(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">      next(data)</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> next(action)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">store.dispatch(<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span> &#123;</span><br><span class="line">    resolve(&#123;<span class="attr">type</span>: <span class="string">'INCREASE'</span>, <span class="attr">count</span>: <span class="number">3</span>&#125;)</span><br><span class="line">  &#125;, <span class="number">3000</span>)</span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure>
+<h1 id="中间件的链式调用"><a href="#中间件的链式调用" class="headerlink" title="中间件的链式调用"></a>中间件的链式调用</h1><p>不知道各位有没有对中间件的第二个参数<code>next</code>有所疑问，<code>next</code>明明是传入的<code>dispatch</code>，为什么叫<code>next</code>，在自己练习的过程中也估计把<code>next</code>写成<code>dispatch</code>，这样好理解一点，终于学到中间件最后，谜底揭晓了, 其实next是为中间件的链式调用准备的, 什么是链式调用呢，我们再拿开头的那个logger中间件举个例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger1 = <span class="function"><span class="params">store</span> =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> logger2 = <span class="function"><span class="params">store</span> =&gt;</span> next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> store = applyMiddleware(logger1, logger2)(createStore)(reducer)</span><br><span class="line">store.dispatch(&#123;<span class="attr">type</span>: <span class="string">'INCREASE'</span>, <span class="attr">count</span>: <span class="number">3</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>看完例子我们再小小总结一下, 其实就是多个中间件一个个调用，形成一个调用链, 我们笔记一开头写的<code>applyMiddleware</code> 为了实现链式调用就需要升级一丢丢了👇</p>
+<h1 id="升级applyMiddleware"><a href="#升级applyMiddleware" class="headerlink" title="升级applyMiddleware"></a>升级applyMiddleware</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compose</span>(<span class="params">...fns</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> last = fns.pop()</span><br><span class="line">    <span class="keyword">return</span> fns.reduce(<span class="function">(<span class="params">pre, next</span>)=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> next(pre)</span><br><span class="line">    &#125;, last(...args))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> applyMiddleware = <span class="function">(<span class="params">...middlewares</span>) =&gt;</span> createStore =&gt; <span class="function"><span class="params">reducer</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> store = createStore(reducer)</span><br><span class="line">  middlewares = middlewares.map(<span class="function"><span class="params">middleware</span> =&gt;</span> middleware(store))</span><br><span class="line">  <span class="keyword">let</span> dispatch = compose(...middlewares)(store.dispatch)</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    ...store,</span><br><span class="line">    dispatch</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们来简单解释下这个升级版的<code>applyMiddleware</code>,难理解的应该就是中间compose这个方法了, 我们在调用了compose以后，compose里的fns其实就是存着下面两个函数的数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们再来看compose最里层的函数体, 我们把它单独拿出来，好看一点👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> last = fns.pop()</span><br><span class="line">  <span class="keyword">return</span> fns.reduce(<span class="function">(<span class="params">pre, next</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> next(pre)</span><br><span class="line">  &#125;, last(...args))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还记得reduce的使用吗？ 在不传入第二个参数的情况下，在第一轮循环中pre会等于数组第一项，next等于第二项，在以后的循环中pre会等于上一次return返回的值，next则是已遍历项的下一项, 传入第二个参数的话, 第一轮循环中 pre就是第二个参数， next就是数组第一项，后轮循环就和上边一样了。回忆完reduce以后我们来解释下这个函数，一开始先定义了个last, last 是传入的fns的最后一项, 就是它啦👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们给它传入了<code>store.dispatch</code>, 就是原来的store里的dispatch, 然后它变成了这样👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger2更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>变成这样以后作为pre传给了next， next又是谁？ 就是它👇 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这里的next就是logger2的action函数了也就是pre</span></span><br><span class="line">next =&gt; <span class="function"><span class="params">action</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>执行完以后返回，并赋给dispatch， dispatch就是这样</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="image-box">
+                <a rel=React学习之Redux中间件⚡ href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>那我们调用dispatch的顺序又是啥呢？ 我们看这张图分析下<br>当我们调用dispatch的时候，会先打印<code>logger1更新前</code>, 然后调用next，next就是logger2最内层的action, 然后这时候会调用<code>logger2更新前</code>, 又遇到了logger2中的next， logger2中的next我们上边说了，传入了原始的dispatch, 调用以后就会更新状态，接着<code>logger2更新后</code>, 接着打印<code>logger1更新后</code></p>
+<p>现在明白为什么叫next不叫dispatch了吧？ 在链式调用中，next指的就是就是下一个中间件的dispatch</p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-03-02T08:34:00.093Z" itemprop="dateUpdated">2019-03-02 16:34:00</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/blog/2019/03/02/各种Redex中间件实现/" target="_blank" rel="external">https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/</a>
+        
+    </div>
+    <footer>
+        <a href="https://hanrenhui.coding.me/blog">
+            <img src="/blog/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Redux/">Redux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Redux中间件/">Redux中间件</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&title=《React学习之Redux中间件⚡》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React学习之Redux中间件⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/blog/2019/03/02/React学习之实现一个Redux/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">React学习之实现Redux🚀</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#日志-logger-中间件"><span class="post-toc-number">2.</span> <span class="post-toc-text">日志(logger)中间件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#logger使用"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">logger使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#applyMiddleware实现"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">applyMiddleware实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#redux-thunk"><span class="post-toc-number">3.</span> <span class="post-toc-text">redux-thunk</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#redux-promise"><span class="post-toc-number">4.</span> <span class="post-toc-text">redux-promise</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#中间件的链式调用"><span class="post-toc-number">5.</span> <span class="post-toc-text">中间件的链式调用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#升级applyMiddleware"><span class="post-toc-number">6.</span> <span class="post-toc-text">升级applyMiddleware</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                韓仁輝 &copy; 2017 - 2019
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&title=《React学习之Redux中间件⚡》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React学习之Redux中间件⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3aQW7DMAwEwP7/0+21QVBnl5IMoxifjMR1NDqILMmvr/j6/nX9/iS5b799v97/dvOFh4eHt7D061cnC/3rDdeb9f5tvnEffhEPDw/vGC//mfyZa0YSKlbWg4eHh/c0XnJ8J7lu/gweHh7e/+blZYU87cbDw8N7Gm99QbMybl7APV5rwcPDw+sqq0X6+4T7I/09PDw8vOWu+vWBO3vmOv1N0utitXh4eHgHeG05dW9Da/30joYS8PDw8LbyhoXR5fAwG89KShIva8bDw8O7kde+KF/6LAi1Rd6iR4eHh4dX8toBgnYj2iQ7CS3Jk3h4eHj38PLXXR/0bYo8K3/UgQEPDw9vK2+2lDbNXUnQl0av8PDw8I7x8kO/bfzn4LaSEK0NDw8PbysvT46X9m8E3vAePDw8vAO8lYN7V+LblnTzsi8eHh7eCV5ebmiT7+LIHo0RJKMPeHh4ePfw9rb820S5TeuLNBoPDw/vFt5scUkgaQNAG0jw8PDwzvHWS6WztlaLyTe9mIzAw8PD28RL0ui2vJsn3PnQVRGE8PDw8I7xZo3/Ns3Nt2OWTNedPTw8PLySt9IAyxPlWQl4VgR5eRseHh7ejbxZy2plO9ogFK0cDw8P7wBv5bgvWvhxkWJWbviwQjw8PLzDvPV2VDvIlQ8T5CHqYLcNDw8Pb+tyZ2/ICxN5yv5hMgIPDw9vE69t8OcliSPH/awzhoeHh7fM+y6v/NDPU/NocCr+9uUeDw8P7wBvZaRp10ZcL27lHg8PD+8cr11ovk/tCEI+iHAdNvDw8PDu4a0UIPIibBIw2ggWBQY8PDy8B/CSAm6+KbMUPypD4+Hh4T2G1x7iK8FgNoiAh4eHd5qXFCPaY70dSpgFpA+f4+Hh4R3grfzDXxzQSck1fnLDrBkeHh7ehPcDTkINAR2zo8oAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/blog/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/blog/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/blog/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/valine.js?v=1.3.2"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/leancloud_visitors.js?v=1.3.2"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+  daovoice('init', {
+    app_id: "f7ac8962"
+  });
+  daovoice('update');
+</script>
+
+    
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-120},"mobile":{"show":true,"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"react":{"opacityDefault":0.8,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
