@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     
-    <title>React学习之Redux中间件⚡ | This is My World | If I Can Turn Back Time</title>
+    <title>React学习之实现Redux中间件⚡ | This is My World | If I Can Turn Back Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="keywords" content="笔记,Redux,Redux中间件">
@@ -148,7 +148,7 @@
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">
-            <span>React学习之Redux中间件⚡</span>
+            <span>React学习之实现Redux中间件⚡</span>
             
         </div>
         
@@ -161,7 +161,7 @@
 <header class="content-header post-header">
     <img src="/blog/img/banner.jpg" class="header-bg">
     <div class="container fade-scale">
-        <h1 class="title">React学习之Redux中间件⚡</h1>
+        <h1 class="title">React学习之实现Redux中间件⚡</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-03-02T04:27:00.000Z" itemprop="datePublished" class="page-time">
@@ -197,7 +197,7 @@
     <article id="post-各种Redex中间件实现"
   class="post-article article-type-post" itemprop="blogPost">
     <div class="post-card">
-        <h1 class="post-card-title">React学习之Redux中间件⚡</h1>
+        <h1 class="post-card-title">React学习之实现Redux中间件⚡</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-03-02 12:27:00" datetime="2019-03-02T04:27:00.000Z"  itemprop="datePublished">2019-03-02</time>
 
@@ -207,7 +207,7 @@
 
 
             
-	<span id="/blog/2019/03/02/各种Redex中间件实现/" class="leancloud_visitors" data-flag-title="React学习之Redux中间件⚡" title="React学习之Redux中间件⚡">
+	<span id="/blog/2019/03/02/各种Redex中间件实现/" class="leancloud_visitors" data-flag-title="React学习之实现Redux中间件⚡" title="React学习之实现Redux中间件⚡">
 		
 			<i class="icon icon-eye"></i>
 		
@@ -262,7 +262,7 @@
 <p>执行完以后返回，并赋给dispatch， dispatch就是这样</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">action =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新前: '</span>,store.getState());</span><br><span class="line">  next(action)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'logger1更新后: '</span>,store.getState());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="image-box">
-                <a rel=React学习之Redux中间件⚡ href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="" title="" class=""></a>
+                <a rel=React学习之实现Redux中间件⚡ href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="" title="" class=""></a>
                 <p></p>
             </figure>
 <p>那我们调用dispatch的顺序又是啥呢？ 我们看这张图分析下<br>当我们调用dispatch的时候，会先打印<code>logger1更新前</code>, 然后调用next，next就是logger2最内层的action, 然后这时候会调用<code>logger2更新前</code>, 又遇到了logger2中的next， logger2中的next我们上边说了，传入了原始的dispatch, 调用以后就会更新状态，接着<code>logger2更新后</code>, 接着打印<code>logger1更新后</code></p>
@@ -274,7 +274,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-03-03T14:06:03.530Z" itemprop="dateUpdated">2019-03-03 22:06:03</time>
+    最后更新时间：<time datetime="2019-03-17T10:36:21.941Z" itemprop="dateUpdated">2019-03-17 18:36:21</time>
 </span><br>
 
 
@@ -308,13 +308,13 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&title=《React学习之Redux中间件⚡》 — This is My World&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&title=《React学习之实现Redux中间件⚡》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React学习之Redux中间件⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React学习之实现Redux中间件⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -459,13 +459,13 @@
       </li>
       
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&title=《React学习之Redux中间件⚡》 — This is My World&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&title=《React学习之实现Redux中间件⚡》 — This is My World&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React学习之Redux中间件⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《React学习之实现Redux中间件⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/03/02/各种Redex中间件实现/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
