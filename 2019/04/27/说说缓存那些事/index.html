@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    
+    <title>说说缓存那些事⚡ | This is My World | If I Can Turn Back Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="keywords" content="笔记,Node,Cache">
+    <link rel="shortcut icon" href="/blog/img/favicon.ico">
+    <link rel="stylesheet" href="/blog/css/third-party/swipebox.min.css?v=1.3.2">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.3.2">
+    
+    <script type="text/javascript">
+        // Data Center
+        var DC = {
+            reward:	false,
+            lv: JSON.parse('{"enable":true,"app_id":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","app_key":"IoIFiLVVJk5aBNpxEGX7UO1b","icon":true}'),
+            v: JSON.parse('{"enable":true,"appid":"BrLRjz6HbRLnsfSae353Cjdz-gzGzoHsz","appkey":"IoIFiLVVJk5aBNpxEGX7UOlb","notify":true,"verify":true,"placeholder":"give me some sugers plz...","avatar":"wavatar"}'),
+            g: JSON.parse('{"enable":false,"lazy":true,"owner":"HanRenHui","repo":"HanRenHui.github.io","oauth":{"client_id":"aece49cfa525e062e2e0","client_secret":"a103585226e6ef123efef34b015f7250c4912f31"},"perPage":10}'),
+            d: JSON.parse('{"app_id":"f7ac8962"}')
+        };
+    </script>
+    <script type="text/javascript">
+        window.lazyScripts=[];
+    </script>
+    
+        <script type="text/javascript" src="/blog/js/plugins/daovoice.js?v=1.3.2"></script>
+    
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      
+      <img src="/blog/img/brand.jpg" class="brand-bg">
+      
+      <div class="brand">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">韓仁輝</h5>
+          <a href="mailto:897691781@qq.com" title="897691781@qq.com" class="mail">
+            
+              <span>8</span>
+            
+              <span>9</span>
+            
+              <span>7</span>
+            
+              <span>6</span>
+            
+              <span>9</span>
+            
+              <span>1</span>
+            
+              <span>7</span>
+            
+              <span>8</span>
+            
+              <span>1</span>
+            
+              <span>@</span>
+            
+              <span>q</span>
+            
+              <span>q</span>
+            
+              <span>.</span>
+            
+              <span>c</span>
+            
+              <span>o</span>
+            
+              <span>m</span>
+            
+          </a>
+        </hgroup>
+        
+        <ul class="menu-link">
+          
+              <li>
+                <a href="https://github.com/HanRenHui" target="_blank">
+                  <i class="icon icon-lg icon-github"></i>
+                </a>
+              </li>
+            
+        </ul>
+        
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="">
+              <a href="/blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                HOME
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                CATEGORIES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                TAGS
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                ARCHIVES
+              </a>
+            </li>
+        
+            <li class="">
+              <a href="/blog/custom"  >
+                <i class="icon icon-lg icon-plus-square"></i>
+                CUSTOM
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row clearfix">
+        <a href="javascript:;" class="header-icon pull-left waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">
+            <span>说说缓存那些事⚡</span>
+            
+        </div>
+        
+        <a href="javascript:;" id="site_search_btn" class="header-icon pull-right waves-effect waves-circle waves-light">
+            <i class="icon icon-lg icon-search"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+    <img src="/blog/img/banner.jpg" class="header-bg">
+    <div class="container fade-scale">
+        <h1 class="title">说说缓存那些事⚡</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-04-27T09:44:12.000Z" itemprop="datePublished" class="page-time">
+  2019-04-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Cache/">Cache</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Cache/Node/">Node</a></li></ul></li></ul></li></ul>
+
+            
+        </h5>
+        
+    </div>
+    
+
+</header>
+
+<div id="site_search">
+    <div class="search-title clearfix">
+        <span class="pull-left">
+          <i class="icon icon-lg icon-search"></i>
+        </span>
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="search my blog..." class="form-control pull-left"/>
+        <a href="javascript:;" class="close pull-right waves-effect waves-circle waves-light">
+          <i class="icon icon-lg icon-close"></i>
+        </a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<div class="container body-wrap">
+    <article id="post-说说缓存那些事"
+  class="post-article article-type-post" itemprop="blogPost">
+    <div class="post-card">
+        <h1 class="post-card-title">说说缓存那些事⚡</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-04-27 17:44:12" datetime="2019-04-27T09:44:12.000Z"  itemprop="datePublished">2019-04-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/">笔记</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Cache/">Cache</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/笔记/Cache/Node/">Node</a></li></ul></li></ul></li></ul>
+
+
+
+            
+	<span id="/blog/2019/04/27/说说缓存那些事/" class="leancloud_visitors" data-flag-title="说说缓存那些事⚡" title="说说缓存那些事⚡">
+		
+			<i class="icon icon-eye"></i>
+		
+		<span class="leancloud-visitors-count"></span>
+	</span>
+ 
+
+            
+    <span class="leancloud-comment">
+        <i class="icon icon-comment-o"></i>
+        <a href="/blog/2019/04/27/说说缓存那些事/#comment">
+            <span class="valine-comment-count" data-xid="/blog/2019/04/27/说说缓存那些事/"></span>
+        </a>
+    </span>
+
+
+
+            
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>我们都知道304状态码代表着缓存, 但是你知道后端具体做了什么么？ 今天我们来细聊一下</p>
+<h1 id="缓存分类"><a href="#缓存分类" class="headerlink" title="缓存分类"></a>缓存分类</h1><p>缓存分为<code>强制缓存</code>和<code>对比缓存</code>, 但是强制缓存并不会触发304状态码, 但是后端在处理缓存的时候, 强制缓存也是很重要的一部分; 那么强制缓存和对比缓存又存在哪些差异呢? 强制缓存设置以后, 在缓存的有效时间内, 浏览器不会再向服务器发送请求, 而对比缓存不管缓存有没有效都会去请求服务器, 服务器端再判断要请求的文件是否经过修改, 如果改过, 则重新返回新文件, 否则的话直接设置响应码为304并结束本次请求, 浏览器一看状态码是304, 就会调用缓存里的文件, 那么强制缓存和对比缓存具体在后端怎么操作呢？ 不急, 我们挨个来看 👇</p>
+<h1 id="强制缓存"><a href="#强制缓存" class="headerlink" title="强制缓存"></a>强制缓存</h1><p>我们首先用node搭一个静态服务器 👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// promisefy 用于将stat方法promise化 </span></span><br><span class="line"><span class="keyword">let</span> stat = promisefy(fs.stat)</span><br><span class="line">http.createServer(<span class="keyword">async</span> (req, res) =&gt; &#123;</span><br><span class="line">  <span class="comment">// pathname是前端请求url</span></span><br><span class="line">  <span class="keyword">let</span> &#123; pathname &#125; = url.parse(req.url)</span><br><span class="line">  <span class="comment">// 根据请求url找到文件的绝对路径</span></span><br><span class="line">  <span class="keyword">let</span> filename = path.join(__dirname, pathname)</span><br><span class="line"></span><br><span class="line">  <span class="keyword">try</span>&#123; </span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> stat(filename)</span><br><span class="line">    <span class="comment">// 判断是不是文件</span></span><br><span class="line">    <span class="keyword">if</span> (result.isFile()) &#123;</span><br><span class="line">      <span class="comment">// 设置响应体的类型, mime.getType方法可以根据文件名返回对应的contenttype </span></span><br><span class="line">      res.setHeader(<span class="string">'Content-Type'</span>, mime.getType(filename) + <span class="string">'charset; utf8'</span>)</span><br><span class="line">      <span class="comment">// 将读取的内容pipe到res中</span></span><br><span class="line">      <span class="keyword">return</span> fs.createReadStream(filename).pipe(res)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="comment">// 出错表示未找到对应的文件</span></span><br><span class="line">    <span class="keyword">return</span> res.end(<span class="string">'Not Fount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">res.end()</span><br><span class="line">&#125;).listen(<span class="number">3001</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server is working on the http://localhost:3001'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>现在我们添加强制缓存, 强制缓存设置很简单, 直接多设置一个请求头就好了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置过期时间, 10s 有效时间</span></span><br><span class="line">res.setHeader(<span class="string">'Cache-Control'</span>, <span class="string">'max-age=10'</span>)</span><br><span class="line"><span class="comment">// 兼容旧的浏览器 也是 10s有效时间</span></span><br><span class="line">res.setHeader(<span class="string">'Expires'</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="built_in">Date</span>.now() + <span class="number">10</span>*<span class="number">1000</span>).toGMTString())</span><br></pre></td></tr></table></figure>
+<p>看一下我们的html文件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"/timg.jpg"</span> <span class="attr">alt</span>=<span class="string">"背景图"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当我们设置了强制缓存, 在地址栏中输入 <a href="http://localhost:3001/index.html" target="_blank" rel="noopener">http://localhost:3001/index.html</a> 第一次请求没什么变化, 再此请求的时候就会变成下图这样</p>
+<figure class="image-box">
+                <a rel=说说缓存那些事⚡ href="1.png" class="swipebox" title="undefined"><img src="1.png" alt="" title="" class=""></a>
+                <p></p>
+            </figure>
+<p>有人可能会问了, 怎么只有img文件显示是来自缓存啊？ 其实强制缓存只有对html文件里类似img这样的标签是有用的, 而且相应的状态码也并不会显示304</p>
+<h2 id="强制缓存的问题"><a href="#强制缓存的问题" class="headerlink" title="强制缓存的问题"></a>强制缓存的问题</h2><p>强制缓存最大的问题就是不管要请求的文件内容变没变, 只要在缓存的有效时间内就不会重新请求服务器, 这样显然不太合适, 因为很可能文件早就被修改了, 而浏览器还在乐呵呵地使用旧数据</p>
+<h1 id="对比缓存"><a href="#对比缓存" class="headerlink" title="对比缓存"></a>对比缓存</h1><p>对比缓存就是来解决强制缓存的问题的, 对比缓存就算文件在缓存的有效期内, 浏览器也还是会向服务器重新请求数据, 再由服务器决定该不该让浏览器使用缓存, 那具体怎么实现呢？ 大体思路就是 <strong>客户端在第一次请求服务端的时候, 服务端会将文件的最后修改时间(Last-Modified)写入响应头, 下次客户端请求的时候拿着这个最后修改时间(if-modified-since)去找服务器, 服务器查一下要请求的文件的最后修改时间和客户端手里拿的是不是一样, 一样则通知浏览器走缓存, 否则返回新内容</strong><br>那么, 用代码怎么写呢？ 👇</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">http.createServer(<span class="keyword">async</span> (req, res) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> &#123; pathname &#125; = url.parse(req.url)</span><br><span class="line">  <span class="built_in">console</span>.log(pathname);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">let</span> filename = path.join(__dirname, pathname)</span><br><span class="line">  <span class="comment">// 客户端第二次请求会拿着这个请求头</span></span><br><span class="line">  <span class="comment">// 这个请求头的值就是第一次请求时服务器设置的last-modified的值</span></span><br><span class="line">  <span class="keyword">let</span> ifModifeldSince = req.headers[<span class="string">'if-modified-since'</span>]</span><br><span class="line">  <span class="keyword">try</span>&#123; </span><br><span class="line">    <span class="keyword">let</span> result = <span class="keyword">await</span> stat(filename)</span><br><span class="line">    <span class="comment">// 拿到文件的最后修改时间</span></span><br><span class="line">    <span class="keyword">let</span> ctime = result.ctime.toUTCString()</span><br><span class="line">    <span class="keyword">if</span> (result.isFile()) &#123;</span><br><span class="line">      <span class="keyword">if</span> (ifModifeldSince === ctime) &#123;</span><br><span class="line">        <span class="comment">// 如果二者相等, 则说明文件没有更改过, 告诉浏览器可以走缓存</span></span><br><span class="line">        res.statusCode = <span class="number">304</span></span><br><span class="line">        <span class="keyword">return</span> res.end()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 倘若代码走到这里, 则说明文件被修改过, 则返回浏览器最新的文件</span></span><br><span class="line">      res.setHeader(<span class="string">'Content-Type'</span>, mime.getType(filename) + <span class="string">'; charset=utf-8'</span>)</span><br><span class="line">      res.setHeader(<span class="string">'Last-Modified'</span>, ctime)</span><br><span class="line">      <span class="keyword">return</span> fs.createReadStream(filename).pipe(res)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">    <span class="comment">// console.log(e);</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> res.end(<span class="string">'Not Fount'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">res.end()</span><br><span class="line">&#125;).listen(<span class="number">3001</span>, () =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'server is working on the http://localhost:3001'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>这种通过对比文件最后修改时间来判断文件内容是否更改存在以下问题</p>
+<ul>
+<li>对文件内容改完以后又改了回来, 导致最后修改时间变了而内容未变</li>
+<li>文件最后修改时间只能精确到秒, 倘若对文件的修改时间控制在一秒以内, 也不能判断出文件内容是否改变</li>
+</ul>
+<h1 id="Etag"><a href="#Etag" class="headerlink" title="Etag"></a>Etag</h1><p>这是一个比较完美的解决方案, 直接读取文件内容, 并根据文件内容通过MD5生成一个摘要作为Etag返回给客户端, 下次客户端拿着这个etag值(if-none-matched)来请求服务端, 服务端对文件内容重新读取并生成摘要, 并和客户端带来的etag值来做对比, 如果相同则文件未改, 通知浏览器走缓存, 否则服务器返回新文件, 该方法和上边方法一样， 都属于对比缓存, 都会触发304</p>
+<p>看下代码里怎么实现👇(只写下核心部分)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> rs = fs.createReadStream(filename)</span><br><span class="line"><span class="keyword">let</span> md5 = crypto.createHash(<span class="string">'md5'</span>)</span><br><span class="line"><span class="comment">// 第一次请求服务端若在响应头中设置了etag, 则在下一次请求时, 客户端就会把etag的值放在if-none-match中带过来</span></span><br><span class="line"><span class="keyword">let</span> ifNoneMatch = req.headers[<span class="string">'if-none-match'</span>]</span><br><span class="line"><span class="keyword">let</span> arr = []</span><br><span class="line">rs.on(<span class="string">'data'</span>, data =&gt; &#123;</span><br><span class="line">  md5.update(data)</span><br><span class="line">  arr.push(data)</span><br><span class="line">&#125;)</span><br><span class="line">rs.on(<span class="string">'end'</span>, () =&gt; &#123;</span><br><span class="line">  <span class="comment">// 用md5 根据文件内容生成摘要</span></span><br><span class="line">  <span class="keyword">let</span> etag = md5.digest(<span class="string">'base64'</span>)</span><br><span class="line">  <span class="comment">// 如果etag和if-none-match的值相等 则走缓存</span></span><br><span class="line">  <span class="keyword">if</span> (ifNoneMatch === etag) &#123;</span><br><span class="line">    res.statusCode = <span class="number">304</span></span><br><span class="line">    <span class="keyword">return</span> res.end()</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 若程序走到这 则说明没走缓存</span></span><br><span class="line">  res.setHeader(<span class="string">'Content-Type'</span>, mime.getType(filename) + <span class="string">'; charset=utf8'</span>)</span><br><span class="line">  res.setHeader(<span class="string">'Etag'</span>, etag)</span><br><span class="line">  <span class="keyword">return</span> res.end(Buffer.concat(arr))</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p><strong>看的出etag虽然是个不错的方案但确有点吃性能, 因为每次请求都会将请求的文件都要读一遍, 所以有点时候我们也可以将（文件最后修改时间+文件的大小）作为etag的值</strong></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>既然有这么多中方案, 那么在实际开发中该怎么选择呢, 答案是全用！(按照强制缓存 , last-modified, etag的顺序) 你没有听错, 我们可以先用设置强制缓存, 设个几秒就够了, 当强制缓存到期, 程序会走到last-modified对比缓存, 再走etag对比缓存， 如果都成立的话则返回304, 并重新设置强制缓存,如果其中有一个不成立都要发送新的文件; <strong>所以 304 = etag + last-modified</strong></p>
+
+        </div>
+        
+<blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-04-27T12:42:34.489Z" itemprop="dateUpdated">2019-04-27 20:42:34</time>
+</span><br>
+
+
+        
+        转载注明出处，原文地址：<a href="/blog/2019/04/27/说说缓存那些事/" target="_blank" rel="external">https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/</a>
+        
+    </div>
+    <footer>
+        <a href="https://hanrenhui.coding.me/blog">
+            <img src="/blog/img/avatar.jpg" alt="韓仁輝">
+            韓仁輝
+        </a>
+    </footer>
+</blockquote>
+
+        
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Cache/">Cache</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Node/">Node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/笔记/">笔记</a></li></ul>
+
+            <div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/&title=《说说缓存那些事⚡》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《说说缓存那些事⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+        </div>
+        
+    </div>
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="next">
+      <a href="/blog/2019/04/26/cookie和session详解/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">cookie和session详解🚀</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+    
+        <div id="repo">
+    <div class="loading active"></div>
+    <div class="top clearfix">
+        <div class="avatar pull-left"></div>
+        <div class="content pull-left">
+            <p class="name"></p>
+            <p class="description"></p>
+        </div>
+    </div>
+    <ul class="bottom">
+        <li class="star">
+            <span class="icon icon-star"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="fork">
+            <span class="icon icon-code-fork"></span>
+            <span class="val">0</span>
+        </li>
+        <li class="date">
+            <span class="icon icon-clock-o"></span>
+            <span class="val">0000-00-00</span>
+        </li>
+    </ul>
+    <a class="link" href=""></a>
+</div>
+    
+    
+        <aside class="post-widget">
+            <nav class="post-toc-wrap" id="post-toc">
+                <strong>目录</strong>
+                <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#缓存分类"><span class="post-toc-number">2.</span> <span class="post-toc-text">缓存分类</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#强制缓存"><span class="post-toc-number">3.</span> <span class="post-toc-text">强制缓存</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#强制缓存的问题"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">强制缓存的问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#对比缓存"><span class="post-toc-number">4.</span> <span class="post-toc-text">对比缓存</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Etag"><span class="post-toc-number">5.</span> <span class="post-toc-text">Etag</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">6.</span> <span class="post-toc-text">总结</span></a></li></ol>
+            </nav>
+            <div class="toc-bar"><div>
+        </aside>
+    
+</article>
+
+</div>
+
+        <footer class="footer">
+    
+    <div class="top">
+        
+            <p>
+    <span>Links：</span>
+    
+    <span class="blogroll-item">
+        <a href="" target="_blank">HOME</a>
+    </span>
+    
+</p>
+
+        
+    </div>
+    
+    <div class="bottom">
+        <p>
+            <span>
+                韓仁輝 &copy; 2017 - 2019
+            </span>
+        		
+           	
+            
+            
+            <span>
+	            Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/codefine/hexo-theme-mellow" target="_blank">mellow</a>
+            </span>
+            
+            
+            
+
+            
+                
+<span class="site-uv" title="总访客量">
+    <i class="icon icon-user"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_uv"></i>
+</span>
+
+
+<span class="site-pv" title="总访问量">
+    <i class="icon icon-eye"></i>
+    <i class="busuanzi-value" id="busuanzi_value_site_pv"></i>
+</span>
+
+            
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/&title=《说说缓存那些事⚡》 — This is My World&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《说说缓存那些事⚡》 — This is My World&url=https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/&via=https://hanrenhui.coding.me/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://hanrenhui.coding.me/blog/2019/04/27/说说缓存那些事/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+      
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrUlEQVR42u3awYrbQBAEUP//TycQcggYmapujdaBp5NZa+V5c1A31fN6xdevP9f75/d7/r2unjD7y9Xv3nDh4eHhjZZ+db3f8xmf/Ep7z+f1fN5WPDw8vHO8thgkZSB/lScbmhcnPDw8vO/hJeVh9m3bUuPh4eH977zNt7OAAw8PD+8beEkYsQlt91t2PGvBw8PDi3mbAdhPfX5ovoeHh4dXTtX3I7GktJxY4d8n4+Hh4R3gzdrcPHLNtyMPIPIhGR4eHt7zvM/LakOEWSGZbTQeHh7eOd4sBs0D36SNzsPiOj7Gw8PDO8DbBLWz4GA/JBs27nh4eHgP8vKwoA1z29LSxh94eHh4J3j5Yab8VZ4HFnkbjYeHh/edvDaYyIODWWnJA+LLNeDh4eEd4LUNdN2nx8+fbV8d4OLh4eHdyssPM+Xx6+awQttGXxYMPDw8vAO8WXAwO0AwCzvyMvPK6xseHh7eiDc7dNW+3PMSctchMDw8PLxzvE14mi8lOS6Qt8jDQ1d4eHh4B3jJy72NBmbhRf6c4hfx8PDwbuLlAcSmRW7jj4P5NB4eHt5Ns6H8cftGOSkVeUGqI108PDy8W3ltkJqQZi/6GSC6Ew8PD+8mXhsc5HuWLzdvvusoGQ8PD+9W3uzf2ntyXvJbRZONh4eHd4DXNsH713279LbK4eHh4Z3mzQ4/bYb6bTibj9Pw8PDwnuG112xINjtcdSSlxsPDw1vzNunvufKQxBlRW4+Hh4d3gLcvCbOXeNLQt5/x8PDwnuRtBlptSagHV4shGR4eHt5pXjvomlWeWTwxKzB4eHh438NLDhnkh6vaLav/Cw8PD+9HeXkMkRSVPawYg+Hh4eEd4OVhRBIx5AVmE3MUhQEPDw/vVl47AGsPFuSHA/JCcvOUDw8PDy/l/QZrIpxxmGPD1AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+    
+    <!-- main-js -->
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/fastclick.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/ios-orientationchange-fix.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/plugins/jquery.swipebox.min.js?v=1.3.2"></script>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+<script type="text/javascript" src="/blog/js/method.js?v=1.3.2"></script>
+<script type="text/javascript" src="/blog/js/blog.js?v=1.3.2"></script>
+
+<!-- third-party -->
+<script type="text/javascript">
+;( function( $ ) {
+
+	$( '.swipebox' ).swipebox({
+		hideCloseButtonOnMobile: true
+	});
+
+} )( jQuery );
+</script>
+
+
+    <script type="text/javascript">
+    (function() {
+
+        const origin = "Han RenHui | hexo-theme-mellow"
+        let user, repo;
+        origin.replace(/(\S+)\s{0,1}\|\s{0,1}(\S+)/g, (...rest) => {
+            [user, repo] = [ rest[1], rest[2] ];
+        });
+        if (user && repo) {
+            const url = `//api.github.com/repos/${user}/${repo}?callback=?`;
+            $.getJSON(url, (data) => {
+                updateRepoInPage(data.data);
+            });
+        }
+
+        function updateRepoInPage(data) {
+            const {name, description, html_url: url, stargazers_count: stars, forks, owner: owner, updated_at: update} = data;
+            _loadAvatar(owner.avatar_url).then(avatarUrl => {
+                const avatarBg = `url(${avatarUrl})`;
+                const container = $('#repo');
+                container.click(() => {
+                    window.open(url);
+                });
+
+                //init
+                const loadingItem = container.find('.loading').hide();
+                const topItem = container.find('.top').addClass('active');
+                const bottomItem = container.find('.bottom').addClass('active');
+
+                //avatar
+                const avatarItem = container.find('.avatar');
+                const oldBg = avatarItem.css('background-image');
+                avatarItem.hover(() => {
+                    avatarItem.css('background-image', avatarBg);
+                }, () => {
+                    avatarItem.css('background-image', oldBg);
+                });
+
+                //repo-name
+                const nameItem = container.find('.name').html(name);
+
+                //description
+                const descriptionItem = container.find('.description').html(description);
+
+                //stars
+                const starItem = container.find('.star>.val').html(stars);
+
+                //forks
+                const forkItem = container.find('.fork>.val').html(forks);
+
+                //date
+                const formatDate = update.replace(/T.+/g, '');
+                const dateItem = container.find('.date>.val').html(formatDate);
+            });
+
+            function _loadAvatar(url) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        resolve(url);
+                    };
+                    img.src = url;
+                });
+            }
+
+        }
+
+    })();
+</script>
+
+
+
+
+
+<script type="text/javascript" src="/blog/js/plugins/local_search.js?v=1.3.2"></script>
+<script type="text/javascript">
+	var search_path = "search.xml";
+	if (search_path.length === 0) {
+		search_path = "search.xml";
+	}
+	var path = "/blog/" + search_path;
+	searchFunc(path, "local-search-input", "local-search-result");
+</script>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+    
+        <script type="text/javascript" src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script type="text/javascript" src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/valine.js?v=1.3.2"></script>
+    
+    
+
+
+
+<script type="text/javascript" src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script type="text/javascript" src="/blog/js/plugins/leancloud_visitors.js?v=1.3.2"></script>
+
+
+
+    <!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+
+
+
+
+    <script type="text/javascript">
+  daovoice('init', {
+    app_id: "f7ac8962"
+  });
+  daovoice('update');
+</script>
+
+    
+<script src="/blog/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/blog/live2dw/assets/koharu.model.json"},"display":{"superSample":2,"width":150,"height":300,"position":"right","hOffset":0,"vOffset":-120},"mobile":{"show":true,"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"react":{"opacityDefault":0.8,"opacityOnHover":0.2},"log":false});</script></body>
+</html>
