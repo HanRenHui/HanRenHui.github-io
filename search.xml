@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title>onChange屏蔽拼音状态</title>
+      <title>输入框屏蔽拼音状态</title>
       <link href="/blog/2019/08/06/onChange%E5%B1%8F%E8%94%BD%E6%8B%BC%E9%9F%B3%E7%8A%B6%E6%80%81/"/>
       <url>/blog/2019/08/06/onChange%E5%B1%8F%E8%94%BD%E6%8B%BC%E9%9F%B3%E7%8A%B6%E6%80%81/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近React项目中遇到了搜索功能, 监听input输入框的onChange事件,  利用输入的关键词像后台请求数据, 拿到联想搜索结果, 但是发现, 在输入拼音的阶段, onChange就已经监听到了, 这样的话请求频率会非常高, 节流是一个解决方案, 但我更希望是屏蔽掉拼音阶段, 只有在拼音结束敲空格的时候才想后台请求数据, 有了想法就开始左手谷歌, 右手百度, 果然找到了解决方案, 在这边记录一下 </p><h1 id="compositionstart-和-compositionend"><a href="#compositionstart-和-compositionend" class="headerlink" title="compositionstart 和 compositionend"></a>compositionstart 和 compositionend</h1><p>主要是利用了这两个API, 这两个API的主要作用是: 👇</p><ul><li><p>compositionstart: 简单来说就是你一输入拼音就开始触发</p></li><li><p>compositionend: 拼音输入完回车就触发</p></li></ul><p><strong>以上连个API都必须是拼音状态, 英文状态不会处罚</strong></p><p>这么解释是不是很清晰明了, 搞不懂网上搜到的文章都是长篇大论, 两个API的作用读起来像天书一样, 干嘛, 写论文呢? 吓唬谁呢, 写那么苦涩别人又看不懂, 自己文章逼格倒挺高;<br>有了以上两个API, 我们就可以为所欲为了 </p><h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><p>我们可以把请求后台接口的代码放到OnChange事件里面, 但是无论是拼音状态还是英文状态, 只要你键盘一按, change事件就会处罚, 这怎么办呢, 其实我们可以设置一个flag属性, <code>compositionstart</code> 事件一触发(拼音阶段), 我们就把<code>flag</code>设为false, change事件里面设置只有flag为true时才请求,  <code>compositionend</code> 事件一触发, 就把flag设为true, 这时应该就可以了? 非也, 因为选词结束的时候input会比compositionend先一步触发，此时flag还未调整为true,所以我们需要加入setTimeout延时来解决这个问题</p>]]></content>
